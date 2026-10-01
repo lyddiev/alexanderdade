@@ -1222,8 +1222,8 @@ a.band-btn:hover { color: var(--paper); }
 /* ---------- Fig. 1 cue: a small detail callout that invites a closer look ---------- */
 .fig-cue {
   position: absolute;
-  right: 0.2rem;
-  bottom: 0.2rem;
+  right: 0.65rem;
+  bottom: 0.5rem;
   display: grid;
   place-items: center;
   width: 1.75rem;
@@ -1268,3 +1268,63 @@ a.band-btn:hover { color: var(--paper); }
 .cover-fig .parts b { color: var(--ink); }
 .cover-fig .parts .pf a { font-weight: 600; color: var(--green); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; padding: 0; }
 .cover-fig .parts li:hover { background: color-mix(in srgb, var(--green) 8%, transparent); }
+
+/* ---------- Samples as appendices: the whole row opens the document ---------- */
+.samples li { padding: 0; }
+.samples a.appx {
+  display: grid;
+  grid-template-columns: 2.1rem minmax(0, 1fr) 1.5rem;
+  column-gap: 1rem;
+  align-items: start;
+  margin: 0 -0.75rem;
+  padding: 1.1rem 0.75rem 1.15rem;
+  border-radius: 6px;
+  color: var(--ink);
+  font-size: inherit;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-decoration: none;
+  transition: background-color 160ms ease;
+}
+.samples a.appx:hover { text-decoration: none; background: color-mix(in srgb, var(--green) 7%, transparent); }
+.samples a.appx:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+.appx-id {
+  display: grid; place-items: center;
+  width: 2.1rem; height: 2.1rem;
+  margin-top: 0.1rem;
+  border: 1.5px solid var(--green);
+  border-radius: 4px;
+  color: var(--green);
+  font: 700 0.95rem/1 var(--sans);
+  transition: background-color 160ms ease, color 160ms ease;
+}
+.samples a.appx:hover .appx-id { background: var(--green); color: var(--paper); }
+.appx-body { display: block; min-width: 0; }
+.appx-title { display: block; font: 700 1.15rem/1.3 var(--sans); letter-spacing: -0.012em; color: var(--green); }
+.samples a.appx:hover .appx-title { text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+.appx-body .kind { display: block; margin: 0.15rem 0 0.4rem; font-size: 0.85rem; color: var(--graphite); }
+.appx-teaser { display: block; color: var(--ink); }
+.appx-go { align-self: center; color: var(--green); transition: transform 200ms cubic-bezier(.2,.8,.2,1); }
+.appx-go svg { display: block; width: 1.4rem; height: 1.4rem; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.samples a.appx:hover .appx-go { transform: translateX(4px); }
+@media (max-width: 520px) {
+  .samples a.appx { grid-template-columns: 1.9rem minmax(0, 1fr) 1.2rem; column-gap: 0.8rem; }
+  .appx-id { width: 1.9rem; height: 1.9rem; }
+}
+@media (prefers-reduced-motion: reduce) { .appx-go, .samples a.appx, .appx-id { transition: none; } }
+
+.sample-head .appx-label { margin: 1.4rem 0 0; font: 700 0.8rem/1 var(--sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--green); }
+.sample-head .appx-label + h1 { margin-top: 0.5rem; }
+.sample-head .crumb a { text-decoration: none; }
+.sample-head .crumb a:hover { text-decoration: underline; }
+
+/* History and Specs labels line up with the first entry, not the rule above it */
+@media (min-width: 761px) {
+  #record > h2, #specs > h2 { padding-top: 1.2rem; }
+}
+@media (max-width: 520px) {
+  .samples a.appx { grid-template-columns: 1.9rem minmax(0, 1fr); }
+  .appx-go { display: none; }
+  .appx-title::after { content: "\2009\2192"; }
+  .appx-teaser { font-size: 0.95em; }
+}
