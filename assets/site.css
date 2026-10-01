@@ -127,6 +127,68 @@ img { max-width: 100%; height: auto; display: block; }
 .masthead nav a:hover,
 .masthead nav a[aria-current="page"] { color: var(--ink); text-decoration: underline; text-underline-offset: 0.3em; }
 
+/* ---------- Binder thumb tabs ----------
+   Printed index tabs on the right edge of the page. They peek out at rest,
+   slide out on hover, and the tab for the section on screen stays pulled. */
+
+.tabs { display: none; }
+
+@media (min-width: 960px) {
+  .masthead nav { display: none; }
+
+  .tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    position: fixed;
+    right: 0;
+    top: 22vh;
+    z-index: 10;
+  }
+
+  .tab {
+    --tab-bg: var(--green);
+    display: block;
+    width: 3.1rem;
+    padding: 1.15rem 0 1.15rem 0.9rem;
+    border-radius: 9px 0 0 9px;
+    background: var(--tab-bg);
+    color: var(--paper);
+    text-decoration: none;
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    box-shadow: inset 1px 1px 0 rgba(255,255,255,.18), -1px 1px 2px rgba(0,0,0,.12);
+    transform: translateX(1.15rem);
+    transition: transform 220ms cubic-bezier(.2,.7,.2,1), background-color 220ms ease;
+  }
+  .tab span { writing-mode: vertical-rl; transform: rotate(180deg); display: block; }
+
+  .tab-samples { --tab-bg: #3e5c4e; }
+  .tab-record  { --tab-bg: #57766a; }
+  .tab-contact { --tab-bg: #2c3a35; }
+
+  .tab:hover,
+  .tab:focus-visible { transform: translateX(0.35rem); color: var(--paper); }
+  .tab[aria-current] { transform: translateX(0); }
+  .tab:focus-visible { outline-offset: -4px; outline-color: var(--paper); }
+}
+
+@media (min-width: 960px) and (prefers-color-scheme: dark) {
+  .tab { color: #15191b; }
+  .tab:hover, .tab:focus-visible { color: #15191b; }
+  .tab-samples { --tab-bg: #8fb3a0; }
+  .tab-record  { --tab-bg: #a9c4b6; }
+  .tab-contact { --tab-bg: #c9d6cd; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tab { transition: none; }
+}
+
+@media print { .tabs { display: none !important; } }
+
 /* ---------- Sections: reading column with a hanging margin ---------- */
 
 .section {

@@ -15,7 +15,7 @@
 <meta property="og:image" content="https://alexanderdade.com/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/site.css?v=3">
+<link rel="stylesheet" href="assets/site.css?v=4">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -30,6 +30,11 @@
     </ul>
   </nav>
 </header>
+<nav class="tabs" aria-label="Sections">
+  <a class="tab tab-samples" href="index.html#samples"><span>Samples</span></a>
+  <a class="tab tab-record" href="index.html#record"><span>History</span></a>
+  <a class="tab tab-contact" href="index.html#contact"><span>Contact</span></a>
+</nav>
 <main id="main">
 
 <section class="cover" aria-labelledby="cover-title">
@@ -162,6 +167,25 @@
 </section>
 
 </main>
+<script>
+  // Pulls out the thumb tab for whichever section is on screen.
+  (function () {
+    var tabs = document.querySelectorAll('.tabs .tab');
+    if (!('IntersectionObserver' in window) || !tabs.length) return;
+    var byId = {};
+    tabs.forEach(function (t) { byId[t.getAttribute('href').split('#')[1]] = t; });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        tabs.forEach(function (t) { t.removeAttribute('aria-current'); });
+        if (byId[e.target.id]) byId[e.target.id].setAttribute('aria-current', 'true');
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    ['samples', 'record', 'contact'].forEach(function (id) {
+      var el = document.getElementById(id); if (el) io.observe(el);
+    });
+  })();
+</script>
 <footer class="colophon">
   <p>Set in Helvetica.</p>
   <p>&copy; 2026 Alexander Dade</p>
