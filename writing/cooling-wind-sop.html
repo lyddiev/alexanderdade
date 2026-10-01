@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cooling wind failure | Alexander Dade</title>
+<meta name="description" content="Writing sample by Alexander Dade: Cooling wind failure. Troubleshooting SOP for a glass manufacturing plant.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f3f4f0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#15191b" media="(prefers-color-scheme: dark)">
+<!-- Open Graph. Link preview image. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cooling wind failure | Alexander Dade">
+<meta property="og:description" content="Writing sample by Alexander Dade: Cooling wind failure. Troubleshooting SOP for a glass manufacturing plant.">
+<meta property="og:image" content="https://alexanderdade.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="frame">
+<header class="masthead">
+  <a class="home" href="../index.html">Alexander Dade</a>
+  <nav aria-label="Main">
+    <ul>
+      <li><a href="../index.html#writing" aria-current="page">Writing</a></li>
+      <li><a href="../index.html#record">History</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+<main id="main">
+
+<header class="section sample-head">
+  <div class="body">
+    <p class="crumb"><a href="../index.html#writing">All writing</a></p>
+    <h1>Cooling wind failure</h1>
+    <p class="kind">Troubleshooting SOP for a glass manufacturing plant</p>
+  </div>
+</header>
+
+<section class="section" aria-labelledby="context-h">
+  <h2 id="context-h">Context</h2>
+  <div class="body">
+    <p>One procedure from the library I built for a new glass manufacturing facility, written with engineers, technicians, and developers. The library let operators handle issues that used to wait for an engineer.</p>
+    <p>This one guides a technical reader through diagnosing a fault that can be in the software or in the equipment.</p>
+    <p class="tools">Tools: Ignition SCADA, Azure DevOps, Photoshop</p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="notice-h">
+  <h2 id="notice-h">What to notice</h2>
+  <div class="body">
+    <ul class="notes">
+      <li>The first step lists symptoms and causes, so the reader knows what they're looking at before they act.</li>
+      <li>Numbered steps carry the sequence. Bullets carry the checks inside each step.</li>
+      <li>Step numbers are bold and larger, so the reader can find their place on a plant floor.</li>
+      <li>Active voice keeps instructions direct: “check for any alarms,” not “the alarms should be checked.”</li>
+      <li>Photos carry callouts that point to the critical part.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="sheet-wrap" aria-labelledby="doc-h">
+  <p class="sheet-label" id="doc-h">The document</p>
+  <article class="sheet">
+<h2>Cooling wind failure</h2>
+<p>See the following to diagnose and respond to a cooling wind failure.</p>
+<ol class="steps">
+  <li>
+    <span class="step-title">Know the symptoms and causes.</span>
+    <p>Common symptoms of cooling wind failure:</p>
+    <ul>
+      <li>Cooling wind fan error message at the operator station.</li>
+      <li>High radar gauge temperature alarm.</li>
+    </ul>
+    <p>Cooling wind can be lost for several reasons:</p>
+    <ul>
+      <li>Blower wheel obstruction</li>
+      <li>Clogged filter</li>
+      <li>Bearing failure</li>
+      <li>Motor failure</li>
+    </ul>
+  </li>
+  <li>
+    <span class="step-title">At the operator station:</span>
+    <ul>
+      <li>Check for any alarms.</li>
+      <li>Alarms are shown at the top of the screen.</li>
+    </ul>
+    <figure><img src="../assets/img/sop-alarm-bar.png" width="1486" height="143" alt="Operator station screen with a red alarm bar across the top, above tabs for Main Overview, Stilling Chamber, Melter Spout, and two zones." loading="lazy"></figure>
+  </li>
+  <li>
+    <span class="step-title">Physically check the cooling wind fan.</span>
+    <ul>
+      <li>Check if the filter is clogged.</li>
+      <li>Check if the fan is running as expected by looking through the perforated guard at the shaft.</li>
+      <li>Check the wiring and duct connections.</li>
+    </ul>
+    <p>If you hear squealing or screeching noises:</p>
+    <ul><li>There may be a motor or bearing issue.</li></ul>
+    <figure class="photo"><img src="../assets/img/sop-cooling-fan.jpg" width="464" height="622" alt="Photo of the cooling wind fan motor and housing on a grated platform, with a callout labeled Cooling Wind Fan." loading="lazy"></figure>
+  </li>
+  <li>
+    <span class="step-title">Check the wiring and duct connections.</span>
+    <ul>
+      <li>If the cooling wind fan is running but the radar gauges still report high temperatures, physically inspect the cooling wind ducts.</li>
+      <li>Check each duct and connection.</li>
+    </ul>
+  </li>
+</ol>
+  </article>
+</section>
+
+<nav class="pager" aria-label="More writing">
+  <div><a class="prev" href="escalation-article.html"><span>Previous</span>Resolving a monetization issue</a><a class="next" href="localization.html"><span>Next</span>Localizing content in Heretto</a></div>
+</nav>
+
+</main>
+<footer class="colophon">
+  <p>Set in Source Serif 4 and Archivo. Written and maintained by hand, hosted on Netlify.</p>
+  <p>&copy; 2026 Alexander Dade</p>
+</footer>
+</div>
+</body>
+</html>

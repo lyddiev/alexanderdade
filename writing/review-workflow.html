@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Routing documents through review | Alexander Dade</title>
+<meta name="description" content="Writing sample by Alexander Dade: Routing documents through review. Procedure for a regulated review and approval workflow.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f3f4f0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#15191b" media="(prefers-color-scheme: dark)">
+<!-- Open Graph. Link preview image. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Routing documents through review | Alexander Dade">
+<meta property="og:description" content="Writing sample by Alexander Dade: Routing documents through review. Procedure for a regulated review and approval workflow.">
+<meta property="og:image" content="https://alexanderdade.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="frame">
+<header class="masthead">
+  <a class="home" href="../index.html">Alexander Dade</a>
+  <nav aria-label="Main">
+    <ul>
+      <li><a href="../index.html#writing" aria-current="page">Writing</a></li>
+      <li><a href="../index.html#record">History</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+<main id="main">
+
+<header class="section sample-head">
+  <div class="body">
+    <p class="crumb"><a href="../index.html#writing">All writing</a></p>
+    <h1>Routing documents through review</h1>
+    <p class="kind">Procedure for a regulated review and approval workflow</p>
+  </div>
+</header>
+
+<section class="section" aria-labelledby="context-h">
+  <h2 id="context-h">Context</h2>
+  <div class="body">
+    <p>This project built an Agile QA system for creating and updating content. I worked with management, engineering, and technicians to define the criteria and protocols that keep documentation compliant with regulators.</p>
+    <p>The guide walks technical users through assigning review workflows and monitoring a document's progress. The workflow setup accommodates several approval paths.</p>
+    <p class="tools">Tools: DITA, XML, Heretto CCMS, Okta SSO, Azure DevOps, Figma</p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="notice-h">
+  <h2 id="notice-h">What to notice</h2>
+  <div class="body">
+    <ul class="notes">
+      <li>A short context paragraph explains why the task matters and where it fits in the larger process.</li>
+      <li>Bold headings make the page easy to navigate.</li>
+      <li>Numbered steps carry the sequence. Bullets carry the detail inside each step.</li>
+      <li>Active voice keeps instructions direct: “click the Select button,” not “the Select button should be clicked.”</li>
+      <li>Concise language helps the reader finish the task quickly.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="sheet-wrap" aria-labelledby="doc-h">
+  <p class="sheet-label" id="doc-h">The document</p>
+  <article class="sheet">
+<h2>Using the Assignments tool</h2>
+<p>You can use Assignments to create tasks or tickets in the Heretto CCMS to track work on documents. Assignments follow workflows, which are the sequences of steps a document goes through during its lifecycle. Workflows are tailored to fit different approval processes.</p>
+
+<h3>Setting up assignments in Heretto</h3>
+<ol class="steps">
+  <li>
+    <span class="step-title">Open Assignments.</span>
+    <ul><li>Go to the bottom left of the Heretto interface and click <strong>Assignments</strong>. The Assignments window opens.</li></ul>
+    <figure class="small"><img src="../assets/img/rev-assignments-menu.png" width="252" height="150" alt="Sidebar menu with Assignments highlighted above Localization Jobs and Trash." loading="lazy"></figure>
+  </li>
+  <li>
+    <span class="step-title">Create a new assignment.</span>
+    <ul><li>Click the <strong>Create New</strong> button to start setting up a new assignment.</li></ul>
+    <figure class="button"><img src="../assets/img/rev-create-button.png" width="148" height="29" alt="Create New Assignment button." loading="lazy"></figure>
+    <ul><li>Fill in the summary and due date, and select <strong>Send email notifications</strong>.</li></ul>
+    <figure><img src="../assets/img/rev-assignment-form.png" width="619" height="253" alt="Create Assignment form with a summary, a due date, and Send email notification checked." loading="lazy"></figure>
+  </li>
+  <li>
+    <span class="step-title">Choose a workflow.</span>
+    <ul><li>Select a predefined workflow that suits the review process. Workflows define the sequence of steps an assignment goes through.</li></ul>
+    <figure class="small"><img src="../assets/img/rev-workflow-menu.png" width="240" height="152" alt="Workflow menu listing New Document Review, Minor Review, and Major Review." loading="lazy"></figure>
+  </li>
+  <li>
+    <span class="step-title">Assign participants to each step.</span>
+    <ul><li>Assign team members to each step of the workflow.
+      <p class="note"><strong>Note</strong>: You can assign more than one participant to a step.</p></li></ul>
+    <figure><img src="../assets/img/rev-participants.png" width="576" height="311" alt="Participant fields for Authoring, SME Review, EHS Review, Stakeholder Review, and Publish." loading="lazy"></figure>
+  </li>
+  <li>
+    <span class="step-title">Select files.</span>
+    <ul>
+      <li>Choose the files to include in the assignment. You can select individual files or entire maps for a full review.</li>
+      <li>Click the <strong>Select</strong> button.</li>
+    </ul>
+    <figure><img src="../assets/img/rev-select-files.png" width="1116" height="75" alt="File row selected with In Progress status." loading="lazy"></figure>
+  </li>
+  <li>
+    <span class="step-title">Send for review.</span>
+    <ul><li>When the assignment is set up, click the <strong>Create</strong> button to send it for review. Participants receive email notifications.</li></ul>
+    <figure class="button"><img src="../assets/img/rev-create-confirm.png" width="74" height="32" alt="Green Create button." loading="lazy"></figure>
+  </li>
+  <li>
+    <span class="step-title">Monitor and manage assignments.</span>
+    <ul><li>Use the Assignments dashboard to monitor progress, make adjustments, or mark steps as complete.</li></ul>
+    <figure><img src="../assets/img/rev-dashboard.png" width="1175" height="859" alt="Assignment dashboard showing resources, details, and a five-step workflow from Authoring to Publish." loading="lazy"></figure>
+  </li>
+</ol>
+  </article>
+</section>
+
+<nav class="pager" aria-label="More writing">
+  <div><a class="prev" href="localization.html"><span>Previous</span>Localizing content in Heretto</a><a class="next" href="route-sharing.html"><span>Next</span>Sharing a route between screens</a></div>
+</nav>
+
+</main>
+<footer class="colophon">
+  <p>Set in Source Serif 4 and Archivo. Written and maintained by hand, hosted on Netlify.</p>
+  <p>&copy; 2026 Alexander Dade</p>
+</footer>
+</div>
+</body>
+</html>

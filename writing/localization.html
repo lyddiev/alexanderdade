@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Localizing content in Heretto | Alexander Dade</title>
+<meta name="description" content="Writing sample by Alexander Dade: Localizing content in Heretto. Procedure for technical users in a component content management system.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f3f4f0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#15191b" media="(prefers-color-scheme: dark)">
+<!-- Open Graph. Link preview image. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Localizing content in Heretto | Alexander Dade">
+<meta property="og:description" content="Writing sample by Alexander Dade: Localizing content in Heretto. Procedure for technical users in a component content management system.">
+<meta property="og:image" content="https://alexanderdade.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="frame">
+<header class="masthead">
+  <a class="home" href="../index.html">Alexander Dade</a>
+  <nav aria-label="Main">
+    <ul>
+      <li><a href="../index.html#writing" aria-current="page">Writing</a></li>
+      <li><a href="../index.html#record">History</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+<main id="main">
+
+<header class="section sample-head">
+  <div class="body">
+    <p class="crumb"><a href="../index.html#writing">All writing</a></p>
+    <h1>Localizing content in Heretto</h1>
+    <p class="kind">Procedure for technical users in a component content management system</p>
+  </div>
+</header>
+
+<section class="section" aria-labelledby="context-h">
+  <h2 id="context-h">Context</h2>
+  <div class="body">
+    <p>This project trained teams to translate content into other languages. I worked with developers and IAM engineers to define the practices and protocols. It was part of an enterprise content migration to XML that reduced maintenance costs and increased daily users.</p>
+    <p>The guide walks technical users through preparing content for translation, creating a localization job, and exchanging translation packages, with practices for working with translation teams. A second stage used retrospectives to audit the training program.</p>
+    <p class="tools">Tools: DITA, XML, XLIFF, Heretto CCMS, Okta SSO</p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="notice-h">
+  <h2 id="notice-h">What to notice</h2>
+  <div class="body">
+    <ul class="notes">
+      <li>Bold headings make the page easy to navigate.</li>
+      <li>Numbered steps carry the sequence. Bullets carry the detail inside each step.</li>
+      <li>Steps are in the second person and start with a verb.</li>
+      <li>Interface objects are bold so the reader can spot the action they need to take.</li>
+      <li>Each screenshot sits directly under the step it shows.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="sheet-wrap" aria-labelledby="doc-h">
+  <p class="sheet-label" id="doc-h">The document</p>
+  <article class="sheet">
+<h2>Creating a localization job</h2>
+<p>You can manage and translate your content for different languages and regions with localization jobs.</p>
+<p>Start by creating maps to handle translations. A map is your starting point for any translation project. It groups the content to be translated. From these maps, you can create localization jobs. In the <em>Jobs</em> tab, you create translation packages.</p>
+<p>Download the translation package and send it to your translation team.</p>
+
+<ol class="steps">
+  <li>
+    <span class="step-title">Prepare the content for translation.</span>
+    <ul>
+      <li>Organize all the content to be translated into a map.
+        <p class="note"><strong>Note</strong>: This map is the container for the topics you need to translate.</p></li>
+      <li>Verify that the map includes all needed topics and that the content is ready for translation.</li>
+    </ul>
+    <figure><img src="../assets/img/loc-map-files.png" width="996" height="197" alt="File list showing a map and three topics, each with Approved status." loading="lazy"></figure>
+  </li>
+  <li>
+    <span class="step-title">Create a localization job.</span>
+    <ul><li>Click the <strong>Map</strong> and select <strong>Jobs</strong>.</li></ul>
+    <figure class="small"><img src="../assets/img/loc-map-panel.png" width="538" height="740" alt="Map details panel with the Jobs icon circled in the left sidebar." loading="lazy"></figure>
+    <ul><li>Click the <strong>Create Localization Job</strong> button and select the <strong>Source Package</strong> or <strong>XLIFF</strong> job type.</li></ul>
+    <figure class="button"><img src="../assets/img/loc-create-button.png" width="309" height="45" alt="Create Localization Job button." loading="lazy"></figure>
+    <ul>
+      <li>Select the target language. Optionally, set a due date and include any notes relevant to the translation job.</li>
+      <li>Click the <strong>Create</strong> button.</li>
+    </ul>
+    <figure><img src="../assets/img/loc-create-dialog.png" width="1042" height="656" alt="Create Localization Job dialog with job type Source Package, content Map.ditamap, and locale de-de German." loading="lazy"></figure>
+  </li>
+  <li>
+    <span class="step-title">Download and send the localization package.</span>
+    <ul><li>Click the job and click <strong>Download Localization Package</strong>.</li></ul>
+    <figure><img src="../assets/img/loc-download-package.png" width="1497" height="506" alt="Job details with the Download Localization Package link circled." loading="lazy"></figure>
+    <ul><li>Review the package contents to confirm it includes the correct files for translation. There should be two files: the new language and the source language reference.</li></ul>
+    <figure class="small"><img src="../assets/img/loc-package-files.png" width="621" height="157" alt="Folder listing with project-notes.txt, a de-de folder, and a source-language-reference folder." loading="lazy"></figure>
+    <ul><li>Send the zip package to your translation team. Instruct the team to translate the content without changing the file structure or names. Only change the text inside the elements, not the XML structure.</li></ul>
+  </li>
+  <li>
+    <span class="step-title">Receive and upload the translated content.</span>
+    <ul>
+      <li>After the translation is complete, receive the translated package from your team.</li>
+      <li>Upload the package back into Heretto.</li>
+    </ul>
+    <figure><img src="../assets/img/loc-upload-dialog.png" width="1316" height="898" alt="Upload localization package dialog with a file drop area." loading="lazy"></figure>
+    <ul><li>Confirm that the two language codes match. Select <strong>Include</strong> and click <strong>Apply</strong>.</li></ul>
+    <figure class="small"><img src="../assets/img/loc-confirm-locales.png" width="788" height="186" alt="Upload dialog matching de-de from the upload to de-de in Heretto, with Include checked." loading="lazy"></figure>
+    <ul><li>Heretto automatically associates the translated content with the source files.</li></ul>
+  </li>
+  <li>
+    <span class="step-title">Review and publish the translated content.</span>
+    <ul>
+      <li>Review the uploaded translations to confirm accuracy and completeness.</li>
+      <li>Click the <strong>Complete Job</strong> button.</li>
+    </ul>
+    <figure class="button"><img src="../assets/img/loc-complete-button.png" width="136" height="34" alt="Complete Job button." loading="lazy"></figure>
+  </li>
+</ol>
+  </article>
+</section>
+
+<nav class="pager" aria-label="More writing">
+  <div><a class="prev" href="cooling-wind-sop.html"><span>Previous</span>Cooling wind failure</a><a class="next" href="review-workflow.html"><span>Next</span>Routing documents through review</a></div>
+</nav>
+
+</main>
+<footer class="colophon">
+  <p>Set in Source Serif 4 and Archivo. Written and maintained by hand, hosted on Netlify.</p>
+  <p>&copy; 2026 Alexander Dade</p>
+</footer>
+</div>
+</body>
+</html>
