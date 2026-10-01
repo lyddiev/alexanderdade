@@ -127,6 +127,14 @@ img { max-width: 100%; height: auto; display: block; }
 .masthead nav a:hover,
 .masthead nav a[aria-current="page"] { color: var(--ink); text-decoration: underline; text-underline-offset: 0.3em; }
 
+/* Home page: the cover carries the name, so the masthead drops it.
+   On desktop the tabs handle navigation and the masthead goes entirely. */
+.masthead--home { justify-content: flex-end; }
+@media (min-width: 960px) {
+  .masthead--home { display: none; }
+  .masthead--home + .tabs + main .cover { margin-top: 4rem; }
+}
+
 /* ---------- Binder thumb tabs ----------
    Printed index tabs on the right edge of the page. They peek out at rest,
    slide out on hover, and the tab for the section on screen stays pulled. */
