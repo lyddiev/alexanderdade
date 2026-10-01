@@ -26,6 +26,7 @@
   <a class="tab tab-about" href="index.html#about"><span>About</span></a>
   <a class="tab tab-samples" href="index.html#samples"><span>Samples</span></a>
   <a class="tab tab-record" href="index.html#record"><span>History</span></a>
+  <a class="tab tab-specs" href="index.html#specs"><span>Specs</span></a>
   <a class="tab tab-contact" href="index.html#contact"><span>Contact</span></a>
 </nav>
 <main id="main">
@@ -50,7 +51,7 @@
       <p class="cover-scope">Technical program management for global operations, knowledge systems, and AI deployment.</p>
     </div>
     <figure class="cover-fig">
-      <button class="fig-stage" type="button" aria-pressed="false" aria-label="Fig. 1. Take the operator apart">
+      <button class="fig-stage" type="button" aria-pressed="false" aria-label="Fig. 1. Show exploded view">
         <img class="portrait portrait-light" src="assets/img/portrait.png" width="1073" height="933" alt="">
         <img class="portrait portrait-dark" src="assets/img/portrait-dark.png" width="1073" height="933" alt="" loading="lazy">
         <svg class="exploded" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 470" aria-hidden="true" focusable="false">
@@ -108,22 +109,19 @@
             <path class="x-ln x-th" d="M500 300 L528 286"/><circle class="x-bub" cx="540" cy="279" r="13"/><text class="x-num" x="540" y="279">4</text>
           </g>
         </svg>
+        <span class="fig-cue" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 7v10M7 12h10"/></svg></span>
       </button>
       <div class="parts-wrap">
-        <table class="parts">
-          <caption class="visually-hidden">Parts list for Fig. 1</caption>
-          <thead><tr><th scope="col">Item</th><th scope="col">Part</th><th scope="col">Installed</th></tr></thead>
-          <tbody>
-            <tr data-part="1"><td class="item">1</td><td>Knife, chef&rsquo;s</td><td>Rev. <a href="#rev-1" data-rev="1">1</a></td></tr>
-            <tr data-part="2"><td class="item">2</td><td>Pen, fountain</td><td>Revs. <a href="#rev-2" data-rev="2">2</a>, <a href="#rev-5" data-rev="5">5</a>, <a href="#rev-6" data-rev="6">6</a></td></tr>
-            <tr data-part="3"><td class="item">3</td><td>Hat, hard</td><td>Revs. <a href="#rev-3" data-rev="3">3</a>, <a href="#rev-4" data-rev="4">4</a>, <a href="#rev-9" data-rev="9">9</a></td></tr>
-            <tr data-part="4"><td class="item">4</td><td>Laptop</td><td>Revs. <a href="#rev-7" data-rev="7">7</a>, <a href="#rev-8" data-rev="8">8</a>, <a href="#rev-10" data-rev="10">10</a></td></tr>
-          </tbody>
-        </table>
+        <ol class="parts">
+          <li data-part="1"><span class="pn">1</span><span class="pt"><b>Knife.</b> Timing and prep, under pressure.</span><span class="pf"><a href="#rev-1" data-rev="1">Kitchens</a></span></li>
+          <li data-part="2"><span class="pn">2</span><span class="pt"><b>Pen.</b> Procedures people can actually follow.</span><span class="pf"><a href="#rev-2" data-rev="2">Concentrix</a>, <a href="#rev-5" data-rev="5">Hunter Douglas</a>, <a href="#rev-6" data-rev="6">Doc &amp; Writer</a></span></li>
+          <li data-part="3"><span class="pn">3</span><span class="pt"><b>Hard hat.</b> Rollouts on the plant floor.</span><span class="pf"><a href="#rev-3" data-rev="3">Faustel</a>, <a href="#rev-9" data-rev="4 9">O-I</a></span></li>
+          <li data-part="4"><span class="pn">4</span><span class="pt"><b>Laptop.</b> Platform and AI programs at scale.</span><span class="pf"><a href="#rev-7" data-rev="7">LexisNexis</a>, <a href="#rev-10" data-rev="8 10">Meta</a></span></li>
+        </ol>
       </div>
       <figcaption>
-        <span class="cap-whole">Fig. 1. The operator. <span class="cap-hint"><span class="hint-hover">Hover</span><span class="hint-tap">Tap</span> to take apart.</span></span>
-        <span class="cap-parts">Fig. 1a. The operator, exploded view. Revision numbers link to the history.</span>
+        <span class="cap-whole">Fig. 1. The operator.</span>
+        <span class="cap-parts">Fig. 1a. The operator, exploded view.</span>
       </figcaption>
     </figure>
   </div>
@@ -182,47 +180,47 @@
 </section>
 
 <section class="section" id="record" aria-labelledby="record-h">
-  <h2 id="record-h">Revision history</h2>
+  <h2 id="record-h">History</h2>
   <div class="body">
     <ul class="record">
       <li id="rev-10">
-        <span class="when"><span class="rev">Rev. 10<button class="part-ref" type="button" data-part="4" aria-label="Fig. 1, item 4" title="Fig. 1, item 4">4</button></span>2025 to 2026</span>
+        <span class="when">2025&ndash;2026</span>
         <p class="what"><span class="role">Senior Technical Program Manager, Global Scaled Operations</span><span class="org">Meta</span><span class="line">AI tool deployments and vendor site launches for the global support operation.</span></p>
       </li>
       <li id="rev-9">
-        <span class="when"><span class="rev">Rev. 9<button class="part-ref" type="button" data-part="3" aria-label="Fig. 1, item 3" title="Fig. 1, item 3">3</button></span>2023 to 2024</span>
+        <span class="when">2023&ndash;2024</span>
         <p class="what"><span class="role">Senior Technical Program Manager, Operations</span><span class="org">O-I</span><span class="line">Took a new glass melting technology from the R&D lab into two production plants.</span></p>
       </li>
       <li id="rev-8">
-        <span class="when"><span class="rev">Rev. 8<button class="part-ref" type="button" data-part="4" aria-label="Fig. 1, item 4" title="Fig. 1, item 4">4</button></span>2022 to 2023</span>
+        <span class="when">2022&ndash;2023</span>
         <p class="what"><span class="role">Technical Program Manager, Global Product &amp; Services Operations</span><span class="org">Meta</span><span class="line">Rebuilt how enterprise support handled escalations and help center content.</span></p>
       </li>
       <li id="rev-7">
-        <span class="when"><span class="rev">Rev. 7<button class="part-ref" type="button" data-part="4" aria-label="Fig. 1, item 4" title="Fig. 1, item 4">4</button></span>2021 to 2022</span>
+        <span class="when">2021&ndash;2022</span>
         <p class="what"><span class="role">Technical Program Manager, Platform Delivery</span><span class="org">LexisNexis</span><span class="line">Launched a platform implementation across four environments and three owning teams.</span></p>
       </li>
       <li id="rev-6">
-        <span class="when"><span class="rev">Rev. 6<button class="part-ref" type="button" data-part="2" aria-label="Fig. 1, item 2" title="Fig. 1, item 2">2</button></span>2020 to now</span>
+        <span class="when">2020&ndash;now</span>
         <p class="what"><span class="role">Founder &amp; Principal Consultant</span><span class="org">Doc &amp; Writer Consulting</span><span class="line">Program delivery and documentation for clients including AIRBOX, Bankers&rsquo; Bank of the West, and Idomoo.</span></p>
       </li>
       <li id="rev-5">
-        <span class="when"><span class="rev">Rev. 5<button class="part-ref" type="button" data-part="2" aria-label="Fig. 1, item 2" title="Fig. 1, item 2">2</button></span>2020 to 2021</span>
+        <span class="when">2020&ndash;2021</span>
         <p class="what"><span class="role">Technical Program Manager, Content Platforms</span><span class="org">Hunter Douglas</span><span class="line">Product, installation, and training content for dealers and distributors.</span></p>
       </li>
       <li id="rev-4">
-        <span class="when"><span class="rev">Rev. 4<button class="part-ref" type="button" data-part="3" aria-label="Fig. 1, item 3" title="Fig. 1, item 3">3</button></span>2019 to 2020</span>
+        <span class="when">2019&ndash;2020</span>
         <p class="what"><span class="role">Program Manager, Operations</span><span class="org">O-I</span><span class="line">Ran the pilot that set up a global rollout across two manufacturing plants.</span></p>
       </li>
       <li id="rev-3">
-        <span class="when"><span class="rev">Rev. 3<button class="part-ref" type="button" data-part="3" aria-label="Fig. 1, item 3" title="Fig. 1, item 3">3</button></span>2018 to 2019</span>
+        <span class="when">2018&ndash;2019</span>
         <p class="what"><span class="role">Project Manager</span><span class="org">Faustel</span><span class="line">Industrial equipment projects from design workshops through on-site commissioning.</span></p>
       </li>
       <li id="rev-2">
-        <span class="when"><span class="rev">Rev. 2<button class="part-ref" type="button" data-part="2" aria-label="Fig. 1, item 2" title="Fig. 1, item 2">2</button></span>2017 to 2018</span>
+        <span class="when">2017&ndash;2018</span>
         <p class="what"><span class="role">Lead Technical Writer</span><span class="org">Concentrix</span><span class="line">Agent training and quality standards for a consumer electronics client.</span></p>
       </li>
       <li id="rev-1">
-        <span class="when"><span class="rev">Rev. 1<button class="part-ref" type="button" data-part="1" aria-label="Fig. 1, item 1" title="Fig. 1, item 1">1</button></span>Before that</span>
+        <span class="when">Before that</span>
         <p class="what"><span class="role">Professional chef</span><span class="line">Kitchens, before any of this.</span></p>
       </li>
     </ul>
@@ -263,14 +261,9 @@
       <dl class="cr-meta">
         <dt>CR no.</dt><dd class="cr-number">CR-0000</dd>
         <dt>Against</dt><dd>AD-001, Rev. 10</dd>
+        <dt>Status</dt><dd class="cr-state">Draft</dd>
       </dl>
     </header>
-
-    <ol class="cr-track" aria-label="Request status">
-      <li class="is-on" data-step="draft">Draft</li>
-      <li data-step="submitted">Submitted</li>
-      <li data-step="reply">Reply by email</li>
-    </ol>
 
     <fieldset class="cr-type">
       <legend>Type of request</legend>

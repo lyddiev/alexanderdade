@@ -72,6 +72,7 @@
     var pinned = false;
     setOpen = function (on) {
       fig.classList.toggle('is-open', on);
+      if (on) fig.classList.add('was-opened');
       stage.setAttribute('aria-pressed', on ? 'true' : 'false');
     };
     fig.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') setOpen(true); });
@@ -81,7 +82,7 @@
       var mouse = e.pointerType === 'mouse' || (e.detail > 0 && window.matchMedia('(hover: hover)').matches);
       setOpen(pinned || mouse);
     });
-    fig.querySelectorAll('.parts tr[data-part]').forEach(function (tr) {
+    fig.querySelectorAll('.parts [data-part]').forEach(function (tr) {
       tr.addEventListener('pointerenter', function () { fig.setAttribute('data-hl', tr.getAttribute('data-part')); });
       tr.addEventListener('pointerleave', function () { fig.removeAttribute('data-hl'); });
     });
@@ -91,21 +92,11 @@
     };
     fig.querySelectorAll('a[data-rev]').forEach(function (a) {
       a.addEventListener('click', function (e) {
-        var li = document.getElementById('rev-' + a.getAttribute('data-rev'));
-        if (!li) return;
+        var rows = a.getAttribute('data-rev').split(' ').map(function (n) { return document.getElementById('rev-' + n); }).filter(Boolean);
+        if (!rows.length) return;
         e.preventDefault();
-        go(li, 'center');
-        flag(li);
-      });
-    });
-    // History badges point back up at the part in the drawing.
-    document.querySelectorAll('.part-ref').forEach(function (b) {
-      b.addEventListener('click', function () {
-        pinned = true;
-        setOpen(true);
-        fig.setAttribute('data-hl', b.getAttribute('data-part'));
-        go(fig, 'center');
-        setTimeout(function () { fig.removeAttribute('data-hl'); }, 2600);
+        go(rows[rows.length - 1], 'center');
+        rows.forEach(flag);
       });
     });
   }
@@ -121,7 +112,7 @@
 
   // Tabs: pull out the tab for whichever section is on screen (home page only).
   var tabs = document.querySelectorAll('.tabs .tab');
-  var sections = ['about', 'samples', 'record', 'contact'].map(function (id) { return document.getElementById(id); }).filter(Boolean);
+  var sections = ['about', 'samples', 'record', 'specs', 'contact'].map(function (id) { return document.getElementById(id); }).filter(Boolean);
   if (tabs.length && sections.length) {
     var byId = {};
     tabs.forEach(function (t) { byId[t.getAttribute('href').split('#')[1]] = t; });
@@ -148,24 +139,14 @@
     var numberInput = form.querySelector('input[name="cr-number"]');
     var details = form.querySelector('textarea[name="details"]');
     var count = form.querySelector('.cr-count');
-    var steps = {};
-    form.querySelectorAll('.cr-track li').forEach(function (li) { steps[li.getAttribute('data-step')] = li; });
 
     var d = new Date();
     var crNo = 'CR-' + String(d.getFullYear()).slice(2) + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(Math.floor(1000 + Math.random() * 9000));
     if (numberEl) numberEl.textContent = crNo;
     if (numberInput) numberInput.value = crNo;
 
-    function setStep(name) {
-      var order = ['draft', 'submitted', 'reply'], reached = true;
-      order.forEach(function (k) {
-        if (!steps[k]) return;
-        steps[k].classList.toggle('is-on', reached);
-        steps[k].classList.toggle('is-current', k === name);
-        if (k === name) reached = false;
-      });
-    }
-    setStep('draft');
+    var state = form.querySelector('.cr-state');
+    function setStep(name) { if (state && name === 'submitted') state.textContent = 'Received'; }
 
     if (details && count) {
       details.addEventListener('input', function () { count.textContent = details.value.length + ' / 1500'; });
