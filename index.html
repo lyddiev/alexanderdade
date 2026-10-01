@@ -15,7 +15,9 @@
 <meta property="og:image" content="https://alexanderdade.com/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/site.css?v=5">
+<link rel="stylesheet" href="assets/site.css?v=6">
+<script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+<script src="assets/site.js?v=6" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -28,6 +30,10 @@
       <li><a href="index.html#contact">Contact</a></li>
     </ul>
   </nav>
+  <div class="controls">
+    <button class="switch" type="button" role="switch" aria-checked="false" data-switch="markup"><span class="switch-label">Show markup</span><span class="switch-track" aria-hidden="true"></span></button>
+    <button class="switch" type="button" role="switch" aria-checked="false" data-switch="theme"><span class="switch-label">Night</span><span class="switch-track" aria-hidden="true"></span></button>
+  </div>
 </header>
 <nav class="tabs" aria-label="Sections">
   <a class="tab tab-samples" href="index.html#samples"><span>Samples</span></a>
@@ -42,13 +48,19 @@
   <div class="cover-main">
     <div class="cover-text">
       <p class="cover-sub">Operator&rsquo;s manual</p>
+      <div class="markup" aria-hidden="true">
+        <p class="markup-line"><del>Professional chef.</del> <del>Technical writer.</del> <ins>Technical program manager.</ins></p>
+        <ol class="balloons">
+          <li><b>AD1</b> Rev. 1. Kitchens, before any of this.</li>
+          <li><b>AD2</b> Rev. 2. Lead technical writer, Concentrix, 2017.</li>
+          <li><b>AD3</b> Rev. 10. Senior TPM at Meta, 2025 to 2026. PMP certified February 2026.</li>
+        </ol>
+      </div>
       <p class="cover-scope">Technical program management for global operations, knowledge systems, and AI deployment.</p>
     </div>
     <figure class="cover-fig">
-      <picture>
-        <source srcset="assets/img/portrait-dark.png" media="(prefers-color-scheme: dark)">
-        <img src="assets/img/portrait.png" width="1073" height="933" alt="Engraved portrait of Alexander Dade.">
-      </picture>
+      <img class="portrait portrait-light" src="assets/img/portrait.png" width="1073" height="933" alt="Engraved portrait of Alexander Dade.">
+      <img class="portrait portrait-dark" src="assets/img/portrait-dark.png" width="1073" height="933" alt="Engraved portrait of Alexander Dade." loading="lazy">
       <figcaption>Fig. 1. The operator.</figcaption>
     </figure>
   </div>
@@ -151,13 +163,56 @@
         <p class="what"><span class="role">Professional chef</span><span class="line">Kitchens, before any of this.</span></p>
       </li>
     </ul>
-    <p class="credentials">PMP, Project Management Institute. Agile Project Management, Atlassian. BA, Professional, Technical, Business &amp; Scientific Writing, University of Wisconsin-Milwaukee.</p>
+  </div>
+</section>
+
+<section class="section" id="qualifications" aria-labelledby="qual-h">
+  <h2 id="qual-h">Qualifications</h2>
+  <div class="body">
+    <ul class="record quals">
+      <li>
+        <span class="when">2026</span>
+        <p class="what"><span class="role">Project Management Professional (PMP)</span><span class="org">Project Management Institute</span></p>
+      </li>
+      <li>
+        <span class="when">2025</span>
+        <p class="what"><span class="role">Agile Project Management</span><span class="org">Atlassian</span></p>
+      </li>
+      <li>
+        <span class="when">Degree</span>
+        <p class="what"><span class="role">BA, Professional, Technical, Business &amp; Scientific Writing</span><span class="org">University of Wisconsin-Milwaukee</span></p>
+      </li>
+    </ul>
   </div>
 </section>
 
 <section class="section" id="contact" aria-labelledby="contact-h">
   <h2 id="contact-h">Contact</h2>
   <div class="body">
+    <form class="cr" name="change-request" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="change-request">
+      <p class="cr-hp"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+      <div class="cr-head">
+        <p class="cr-title">Change request</p>
+        <p class="cr-ref">Form CR-1, for AD-001</p>
+      </div>
+      <div class="cr-grid">
+        <label class="cr-field"><span>Requested by</span><input name="name" autocomplete="name" required></label>
+        <label class="cr-field"><span>Reply to</span><input name="email" type="email" autocomplete="email" required></label>
+        <label class="cr-field cr-wide"><span>Type of request</span>
+          <select name="type">
+            <option>Full-time role</option>
+            <option>Contract or consulting</option>
+            <option>Something else</option>
+          </select>
+        </label>
+        <label class="cr-field cr-wide"><span>Details</span><textarea name="details" rows="4" required></textarea></label>
+      </div>
+      <div class="cr-foot">
+        <button type="submit">Submit request</button>
+        <p class="cr-status" role="status" aria-live="polite"></p>
+      </div>
+    </form>
     <ul class="contact-list">
       <li><a href="mailto:connectwithalexander@icloud.com">Email</a></li>
       <li><a href="https://www.linkedin.com/in/alexanderdade/">LinkedIn</a></li>
@@ -166,25 +221,6 @@
 </section>
 
 </main>
-<script>
-  // Pulls out the thumb tab for whichever section is on screen.
-  (function () {
-    var tabs = document.querySelectorAll('.tabs .tab');
-    if (!('IntersectionObserver' in window) || !tabs.length) return;
-    var byId = {};
-    tabs.forEach(function (t) { byId[t.getAttribute('href').split('#')[1]] = t; });
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        tabs.forEach(function (t) { t.removeAttribute('aria-current'); });
-        if (byId[e.target.id]) byId[e.target.id].setAttribute('aria-current', 'true');
-      });
-    }, { rootMargin: '-45% 0px -50% 0px' });
-    ['samples', 'record', 'contact'].forEach(function (id) {
-      var el = document.getElementById(id); if (el) io.observe(el);
-    });
-  })();
-</script>
 <footer class="colophon">
   <p>&copy; 2026 Alexander Dade</p>
 </footer>

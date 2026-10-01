@@ -15,7 +15,9 @@
 <meta property="og:image" content="https://alexanderdade.com/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../assets/site.css?v=4">
+<link rel="stylesheet" href="../assets/site.css?v=6">
+<script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+<script src="../assets/site.js?v=6" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -29,6 +31,9 @@
       <li><a href="../index.html#contact">Contact</a></li>
     </ul>
   </nav>
+  <div class="controls">
+    <button class="switch" type="button" role="switch" aria-checked="false" data-switch="theme"><span class="switch-label">Night</span><span class="switch-track" aria-hidden="true"></span></button>
+  </div>
 </header>
 <nav class="tabs" aria-label="Sections">
   <a class="tab tab-samples" href="../index.html#samples" aria-current="true"><span>Samples</span></a>
@@ -96,7 +101,6 @@
 
 </main>
 <footer class="colophon">
-  <p>Set in Helvetica.</p>
   <p>&copy; 2026 Alexander Dade</p>
 </footer>
 </div>
