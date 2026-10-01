@@ -15,9 +15,9 @@
 <meta property="og:image" content="https://alexanderdade.com/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/site.css?v=6">
+<link rel="stylesheet" href="assets/site.css?v=8">
 <script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
-<script src="assets/site.js?v=6" defer></script>
+<script src="assets/site.js?v=7" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -186,43 +186,62 @@
   </div>
 </section>
 
-<section class="section" id="contact" aria-labelledby="contact-h">
-  <h2 id="contact-h">Contact</h2>
-  <div class="body">
-    <form class="cr" name="change-request" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-      <input type="hidden" name="form-name" value="change-request">
-      <p class="cr-hp"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-      <div class="cr-head">
-        <p class="cr-title">Change request</p>
-        <p class="cr-ref">Form CR-1, for AD-001</p>
+<section class="request" id="contact" aria-labelledby="cr-title">
+  <form class="cr" name="change-request" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="change-request">
+    <input type="hidden" name="cr-number" value="">
+    <p class="cr-hp"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
+    <header class="cr-head">
+      <div>
+        <h2 id="cr-title" class="cr-title">Change request</h2>
+        <p class="cr-intro">Hiring, contracting, or a question about anything here? File it below.</p>
       </div>
-      <div class="cr-grid">
-        <label class="cr-field"><span>Requested by</span><input name="name" autocomplete="name" required></label>
-        <label class="cr-field"><span>Reply to</span><input name="email" type="email" autocomplete="email" required></label>
-        <label class="cr-field cr-wide"><span>Type of request</span>
-          <select name="type">
-            <option>Full-time role</option>
-            <option>Contract or consulting</option>
-            <option>Something else</option>
-          </select>
-        </label>
-        <label class="cr-field cr-wide"><span>Details</span><textarea name="details" rows="4" required></textarea></label>
-      </div>
-      <div class="cr-foot">
-        <button type="submit">Submit request</button>
-        <p class="cr-status" role="status" aria-live="polite"></p>
-      </div>
-    </form>
-    <ul class="contact-list">
+      <dl class="cr-meta">
+        <dt>CR no.</dt><dd class="cr-number">CR-0000</dd>
+        <dt>Against</dt><dd>AD-001, Rev. 10</dd>
+      </dl>
+    </header>
+
+    <ol class="cr-track" aria-label="Request status">
+      <li class="is-on" data-step="draft">Draft</li>
+      <li data-step="submitted">Submitted</li>
+      <li data-step="reply">Reply by email</li>
+    </ol>
+
+    <fieldset class="cr-type">
+      <legend>Type of request</legend>
+      <label><input type="radio" name="type" value="Full-time role" checked><span>Full-time role</span></label>
+      <label><input type="radio" name="type" value="Contract or consulting"><span>Contract or consulting</span></label>
+      <label><input type="radio" name="type" value="Something else"><span>Something else</span></label>
+    </fieldset>
+
+    <div class="cr-grid">
+      <label class="cr-field"><span>Requested by</span><input name="name" autocomplete="name" required></label>
+      <label class="cr-field"><span>Reply to</span><input name="email" type="email" autocomplete="email" required></label>
+      <label class="cr-field cr-wide"><span>Details</span><textarea name="details" rows="4" maxlength="1500" required></textarea><span class="cr-count" aria-hidden="true">0 / 1500</span></label>
+    </div>
+
+    <div class="cr-foot">
+      <button type="submit">Submit request</button>
+      <p class="cr-status" role="status" aria-live="polite"></p>
+    </div>
+
+    <p class="cr-stamp" aria-hidden="true">Received</p>
+  </form>
+</section>
+
+</main>
+<footer class="backcover">
+  <div class="backcover-band" aria-hidden="true"></div>
+  <div class="backcover-grid">
+    <p class="backcover-name">Alexander Dade</p>
+    <ul class="backcover-links">
       <li><a href="mailto:connectwithalexander@icloud.com">Email</a></li>
       <li><a href="https://www.linkedin.com/in/alexanderdade/">LinkedIn</a></li>
     </ul>
   </div>
-</section>
-
-</main>
-<footer class="colophon">
-  <p>&copy; 2026 Alexander Dade</p>
+  <p class="backcover-fine">AD-001, Rev. 10. &copy; 2026 Alexander Dade</p>
 </footer>
 </div>
 </body>
