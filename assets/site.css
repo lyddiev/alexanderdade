@@ -1,31 +1,7 @@
 /* ==========================================================================
    Alexander Dade — site styles
-   Set in Source Serif 4 (reading) and Archivo (structure, nameplate, samples).
+   Set in Helvetica.
    ========================================================================== */
-
-/* Self-hosted variable fonts (SIL Open Font License, see assets/fonts). */
-@font-face {
-  font-family: "Archivo";
-  src: url("fonts/archivo.woff2") format("woff2");
-  font-weight: 100 900;
-  font-stretch: 62% 125%;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Source Serif 4";
-  src: url("fonts/source-serif-4.woff2") format("woff2");
-  font-weight: 200 900;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Source Serif 4";
-  src: url("fonts/source-serif-4-italic.woff2") format("woff2");
-  font-weight: 200 900;
-  font-style: italic;
-  font-display: swap;
-}
 
 :root {
   --paper: #f3f4f0;
@@ -37,20 +13,10 @@
   --sheet: #ffffff;
   --sheet-rule: #d9dcd6;
 
-  /* Nameplate */
-  --plate-top: #e6e8e3;
-  --plate-bottom: #c8ccc6;
-  --plate-edge: #a4aaa3;
-  --plate-ink: #283130;
-  --plate-band: #3e5c4e;
-  --plate-band-ink: #eef1ea;
-  --grain-hi: rgba(255,255,255,.10);
-  --grain-lo: rgba(0,0,0,.012);
+  --serif: var(--sans);
+  --sans: "Helvetica Neue", Helvetica, "TeX Gyre Heros", Arial, sans-serif;
 
-  --serif: "Source Serif 4", "Iowan Old Style", Georgia, serif;
-  --sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
-
-  --measure: 38rem;
+  --measure: 36rem;
   --gutter: 7.5rem;
 }
 
@@ -65,14 +31,6 @@
     --sheet: #1c2124;
     --sheet-rule: #2f3639;
 
-    --plate-top: #3a4144;
-    --plate-bottom: #262c2f;
-    --plate-edge: #4c5457;
-    --plate-ink: #d8ddd6;
-    --plate-band: #2f4a3e;
-    --plate-band-ink: #e6ece4;
-    --grain-hi: rgba(255,255,255,.025);
-    --grain-lo: rgba(0,0,0,.05);
   }
 }
 
@@ -90,8 +48,8 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--serif);
-  font-size: 1.1875rem; /* 19px */
-  line-height: 1.62;
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.55;
   font-optical-sizing: auto;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -150,7 +108,6 @@ img { max-width: 100%; height: auto; display: block; }
   color: var(--ink);
   text-decoration: none;
   font-weight: 600;
-  font-variation-settings: "wdth" 110;
   letter-spacing: 0.01em;
 }
 
@@ -185,7 +142,6 @@ img { max-width: 100%; height: auto; display: block; }
   font-family: var(--sans);
   font-size: 0.95rem;
   font-weight: 600;
-  font-variation-settings: "wdth" 100;
   color: var(--graphite);
   line-height: 1.3;
 }
@@ -203,164 +159,137 @@ img { max-width: 100%; height: auto; display: block; }
   .section > .body { grid-column: 1; }
 }
 
-/* ---------- Nameplate (the one loud thing) ---------- */
+/* ---------- Cover: the manual's title page (the one loud thing) ---------- */
 
-.hero { padding: 3.5rem 0 0; }
-
-.plate {
-  position: relative;
-  max-width: 34rem;
-  margin: 0 0 0 calc(var(--gutter) + 2rem);
-  border: 1px solid var(--plate-edge);
-  border-radius: 7px;
-  color: var(--plate-ink);
-  font-family: var(--sans);
-  background:
-    /* brushed grain */
-    repeating-linear-gradient(90deg, var(--grain-hi) 0 1px, var(--grain-lo) 1px 2px),
-    linear-gradient(180deg, var(--plate-top), var(--plate-bottom));
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.6),
-    inset 0 -1px 0 rgba(0,0,0,.14),
-    0 1px 0 rgba(255,255,255,.5),
-    0 10px 24px -14px rgba(20,30,28,.45);
-  padding: 1.6rem 1.9rem 1.5rem;
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
 
-@media (prefers-color-scheme: dark) {
-  .plate {
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,.08),
-      inset 0 -1px 0 rgba(0,0,0,.4),
-      0 12px 28px -16px rgba(0,0,0,.8);
-  }
+.cover {
+  margin: 2.5rem 0 0;
+  padding: 0 0 0;
 }
 
-/* Slotted screws: real elements so each slot can sit at its own angle. */
-.plate .screw {
-  position: absolute;
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  background:
-    linear-gradient(var(--slot-angle, 35deg), transparent 43%, rgba(0,0,0,.55) 44% 56%, transparent 57%),
-    radial-gradient(circle at 35% 30%, #f4f5f2 0 18%, #b9beb8 55%, #7f867f 100%);
-  box-shadow: 0 1px 0 rgba(255,255,255,.55), inset 0 -1px 1px rgba(0,0,0,.35);
-}
-.plate .screw:nth-of-type(1) { top: 9px; left: 9px; --slot-angle: 28deg; }
-.plate .screw:nth-of-type(2) { top: 9px; right: 9px; --slot-angle: 112deg; }
-.plate .screw:nth-of-type(3) { bottom: 9px; left: 9px; --slot-angle: 71deg; }
-.plate .screw:nth-of-type(4) { bottom: 9px; right: 9px; --slot-angle: 154deg; }
-
-@media (prefers-color-scheme: dark) {
-  .plate .screw {
-    background:
-      linear-gradient(var(--slot-angle, 35deg), transparent 43%, rgba(0,0,0,.7) 44% 56%, transparent 57%),
-      radial-gradient(circle at 35% 30%, #9aa19b 0 18%, #5c635f 55%, #343a37 100%);
-    box-shadow: 0 1px 0 rgba(255,255,255,.08), inset 0 -1px 1px rgba(0,0,0,.5);
-  }
+.cover-band {
+  height: 0.9rem;
+  background: var(--green);
+  /* a printed band: solid colour with a thin keyline under it */
+  box-shadow: 0 0.45rem 0 -0.3rem var(--paper), 0 0.5rem 0 -0.3rem var(--green);
+  margin-bottom: 3.25rem;
 }
 
-/* Light catches the brushed metal and follows the pointer.
-   Position is set by a few lines of script; without it the highlight rests top left. */
-.plate::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  background:
-    radial-gradient(
-      ellipse 60% 120% at var(--mx, 22%) var(--my, 0%),
-      rgba(255,255,255,var(--sheen, .45)),
-      rgba(255,255,255,0) 60%
-    );
-  mix-blend-mode: soft-light;
-  transition: opacity 400ms ease;
-}
-@media (prefers-color-scheme: dark) {
-  .plate { --sheen: .22; }
-}
-
-.plate h1 {
-  margin: 0 0 1.15rem;
-  padding: 0.55rem 0.9rem 0.5rem;
-  background: var(--plate-band);
-  color: var(--plate-band-ink);
-  border-radius: 3px;
-  box-shadow:
-    inset 0 1px 2px rgba(0,0,0,.35),
-    inset 0 0 0 3px var(--plate-band),
-    inset 0 0 0 4px rgba(255,255,255,.18),
-    0 1px 0 rgba(255,255,255,.35);
-  font-size: clamp(1.35rem, 1rem + 1.6vw, 1.9rem);
-  font-weight: 700;
-  font-variation-settings: "wdth" 125;
-  letter-spacing: 0.09em;
-  line-height: 1.1;
-  text-transform: uppercase;
-}
-
-.plate dl {
-  margin: 0;
+.cover-main {
   display: grid;
-  grid-template-columns: max-content 1fr;
-  column-gap: 1.25rem;
-  row-gap: 0.45rem;
-  font-size: 0.78rem;
-  line-height: 1.35;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  padding-top: 0.9rem;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 2.5rem;
+  margin-top: 0.4rem;
 }
 
-.plate dt {
-  font-weight: 500;
-  font-variation-settings: "wdth" 90;
-  opacity: 0.72;
-}
-
-.plate dd {
+.cover h1 {
   margin: 0;
-  font-weight: 650;
-  font-variation-settings: "wdth" 115;
-  text-shadow: 0 1px 0 rgba(255,255,255,.55), 0 -1px 0 rgba(0,0,0,.12);
+  font-family: var(--sans);
+  font-size: clamp(3.2rem, 1.2rem + 7.6vw, 7.4rem);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 0.86;
+  color: var(--ink);
 }
 
-@media (prefers-color-scheme: dark) {
-  .plate dd { text-shadow: 0 -1px 0 rgba(0,0,0,.6), 0 1px 0 rgba(255,255,255,.06); }
+.cover-sub {
+  margin: 0;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: clamp(1.6rem, 1.1rem + 1.7vw, 2.5rem);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--green);
 }
 
-.plate .stamp {
-  margin: 1.1rem 0 0;
-  padding-top: 0.7rem;
-  border-top: 1px solid rgba(0,0,0,.14);
-  box-shadow: 0 -1px 0 rgba(255,255,255,.35);
-  font-size: 0.68rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-variation-settings: "wdth" 100;
-  opacity: 0.7;
+.cover-scope {
+  max-width: 27rem;
+  margin: 1.4rem 0 0;
+  font-size: 1.125rem;
+  line-height: 1.45;
+  color: var(--graphite);
 }
+
+.cover-fig {
+  margin: 0;
+  width: clamp(12rem, 22vw, 17rem);
+}
+.cover-fig img { width: 100%; }
+.cover-fig figcaption {
+  margin-top: 0.5rem;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: var(--graphite);
+}
+
+.doc-control {
+  width: 100%;
+  margin: 3rem 0 0;
+  border-collapse: collapse;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+}
+.doc-control th,
+.doc-control td {
+  border: 1px solid var(--ink);
+  padding: 0.35rem 0.6rem 0.4rem;
+  text-align: left;
+  vertical-align: top;
+}
+.doc-control th {
+  font-weight: 500;
+  font-size: 0.75rem;
+  color: var(--graphite);
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.doc-control td { border-top: 0; font-weight: 600; }
 
 @media (max-width: 760px) {
-  .hero { padding-top: 2.25rem; }
-  .plate { margin-left: 0; padding: 1.35rem 1.25rem 1.25rem; }
-  .plate dl { grid-template-columns: minmax(0, 1fr); row-gap: 0; }
-  .plate dt { margin-top: 0.55rem; }
+  .cover { margin-top: 1.75rem; }
+  .cover-band { margin-bottom: 2.25rem; }
+  .cover-main { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+  .cover-fig { width: min(16rem, 70%); }
+}
+@media (max-width: 520px) {
+  .doc-control thead { display: none; }
+  .doc-control, .doc-control tbody, .doc-control tr { display: block; }
+  .doc-control td { display: grid; grid-template-columns: 6.5rem 1fr; border-top: 1px solid var(--ink); border-bottom: 0; }
+  .doc-control tr td:last-child { border-bottom: 1px solid var(--ink); }
+  .doc-control td::before { font-weight: 500; color: var(--graphite); }
+  .doc-control td:nth-child(1)::before { content: "Doc. no."; }
+  .doc-control td:nth-child(2)::before { content: "Revision"; }
+  .doc-control td:nth-child(3)::before { content: "Effective"; }
+  .doc-control td:nth-child(4)::before { content: "Location"; }
 }
 
-/* One orchestrated moment: the plate settles in on load. */
+/* One orchestrated moment: the cover band prints in on load. */
 @media (prefers-reduced-motion: no-preference) {
-  .plate { animation: settle 700ms cubic-bezier(.2,.7,.2,1) both; }
-  @keyframes settle {
-    from { opacity: 0; transform: translateY(6px); }
-    to   { opacity: 1; transform: none; }
-  }
+  .cover-band { transform-origin: left; animation: print-band 900ms cubic-bezier(.65,0,.2,1) both; }
+  @keyframes print-band { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+}
+
+/* Revision numbers in the history */
+.record .rev {
+  display: block;
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 0.85rem;
 }
 
 /* ---------- Home: lead, record, writing ---------- */
 
-.lead { font-size: 1.3rem; line-height: 1.55; }
+.lead { font-size: 1.4rem; line-height: 1.42; letter-spacing: -0.012em; }
 
 .record {
   margin: 0;
@@ -386,7 +315,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .record .what { margin: 0; }
-.record .role { display: block; font-weight: 600; }
+.record .role { display: block; font-weight: 700; letter-spacing: -0.005em; }
 .record .org { color: var(--graphite); }
 .record .line { display: block; margin-top: 0.15rem; }
 
@@ -412,9 +341,9 @@ img { max-width: 100%; height: auto; display: block; }
 
 .samples a {
   font-family: var(--sans);
-  font-size: 1.15rem;
-  font-weight: 600;
-  font-variation-settings: "wdth" 105;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.012em;
   text-decoration: none;
 }
 .samples a:hover { text-decoration: underline; }
@@ -463,10 +392,9 @@ img { max-width: 100%; height: auto; display: block; }
   margin: 0.6rem 0 0.4rem;
   font-family: var(--sans);
   font-size: clamp(1.9rem, 1.3rem + 2.2vw, 2.7rem);
-  font-weight: 650;
-  font-variation-settings: "wdth" 112;
+  font-weight: 700;
+  letter-spacing: -0.035em;
   line-height: 1.08;
-  letter-spacing: -0.005em;
 }
 
 .sample-head .kind {
@@ -514,14 +442,13 @@ img { max-width: 100%; height: auto; display: block; }
 .sheet h2 {
   margin: 0 0 0.5rem;
   font-size: 1.45rem;
-  font-weight: 650;
-  font-variation-settings: "wdth" 105;
+  font-weight: 700;
   line-height: 1.2;
 }
 .sheet h3 {
   margin: 1.75rem 0 0.5rem;
   font-size: 1.1rem;
-  font-weight: 650;
+  font-weight: 700;
 }
 .sheet p { margin: 0 0 0.9rem; }
 
@@ -616,7 +543,7 @@ img { max-width: 100%; height: auto; display: block; }
 @media print {
   :root { --paper: #fff; --ink: #000; --graphite: #444; --rule: #bbb; --sheet: #fff; }
   .masthead nav, .skip, .pager { display: none; }
-  .plate { box-shadow: none; animation: none; }
+  .cover-band { animation: none; }
   .sheet { border: 0; padding: 0; margin-left: 0; }
   a { color: inherit; }
 }
