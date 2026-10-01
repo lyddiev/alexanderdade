@@ -189,6 +189,7 @@ img { max-width: 100%; height: auto; display: block; }
   }
   .tab span { writing-mode: vertical-rl; transform: rotate(180deg); display: block; }
 
+  .tab-about   { --tab-bg: #6f8b7e; }
   .tab-samples { --tab-bg: #3e5c4e; }
   .tab-record  { --tab-bg: #57766a; }
   .tab-contact { --tab-bg: #2c3a35; }
@@ -201,12 +202,14 @@ img { max-width: 100%; height: auto; display: block; }
 
 @media (min-width: 960px) and (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .tab, :root:not([data-theme="light"]) .tab:hover, :root:not([data-theme="light"]) .tab:focus-visible { color: #15191b; }
+  :root:not([data-theme="light"]) .tab-about   { --tab-bg: #6f9682; }
   :root:not([data-theme="light"]) .tab-samples { --tab-bg: #8fb3a0; }
   :root:not([data-theme="light"]) .tab-record  { --tab-bg: #a9c4b6; }
   :root:not([data-theme="light"]) .tab-contact { --tab-bg: #c9d6cd; }
 }
 @media (min-width: 960px) {
   :root[data-theme="dark"] .tab, :root[data-theme="dark"] .tab:hover, :root[data-theme="dark"] .tab:focus-visible { color: #15191b; }
+  :root[data-theme="dark"] .tab-about   { --tab-bg: #6f9682; }
   :root[data-theme="dark"] .tab-samples { --tab-bg: #8fb3a0; }
   :root[data-theme="dark"] .tab-record  { --tab-bg: #a9c4b6; }
   :root[data-theme="dark"] .tab-contact { --tab-bg: #c9d6cd; }
@@ -312,9 +315,20 @@ img { max-width: 100%; height: auto; display: block; }
 
 .cover-fig {
   margin: 0;
-  width: clamp(12rem, 22vw, 17rem);
+  width: clamp(14rem, 26vw, 20rem);
 }
 .cover-fig img { width: 100%; }
+
+.cover-fig .parts {
+  margin: 0.5rem 0 0;
+  padding: 0.5rem 0 0 1.4rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--graphite);
+  font-variant-numeric: tabular-nums;
+}
+.cover-fig .parts li::marker { font-weight: 700; color: var(--ink); }
 .cover-fig figcaption {
   margin-top: 0.5rem;
   font-family: var(--sans);
@@ -366,8 +380,8 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* One orchestrated moment: the cover band prints in on load. */
 @media (prefers-reduced-motion: no-preference) {
-  .cover-band { transform-origin: left; animation: print-band 900ms cubic-bezier(.65,0,.2,1) both; }
-  @keyframes print-band { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  .cover-band { animation: print-band 900ms cubic-bezier(.65,0,.2,1) both; }
+  @keyframes print-band { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
 }
 
 /* Revision numbers in the history */
@@ -726,18 +740,21 @@ img { max-width: 100%; height: auto; display: block; }
   .tab span { display: block; }
   .tab[aria-current] { transform: translateY(0); }
   .tab:focus-visible { outline: 2px solid var(--paper); outline-offset: -4px; }
+  .tab-about   { --tab-bg: #6f8b7e; }
   .tab-samples { --tab-bg: #3e5c4e; }
   .tab-record  { --tab-bg: #57766a; }
   .tab-contact { --tab-bg: #2c3a35; }
   .tab:hover, .tab:focus-visible { color: var(--paper); }
 
   :root[data-theme="dark"] .tab, :root[data-theme="dark"] .tab:hover { color: #15191b; }
+  :root[data-theme="dark"] .tab-about   { --tab-bg: #6f9682; }
   :root[data-theme="dark"] .tab-samples { --tab-bg: #8fb3a0; }
   :root[data-theme="dark"] .tab-record  { --tab-bg: #a9c4b6; }
   :root[data-theme="dark"] .tab-contact { --tab-bg: #c9d6cd; }
 }
 @media (max-width: 959px) and (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .tab, :root:not([data-theme="light"]) .tab:hover { color: #15191b; }
+  :root:not([data-theme="light"]) .tab-about   { --tab-bg: #6f9682; }
   :root:not([data-theme="light"]) .tab-samples { --tab-bg: #8fb3a0; }
   :root:not([data-theme="light"]) .tab-record  { --tab-bg: #a9c4b6; }
   :root:not([data-theme="light"]) .tab-contact { --tab-bg: #c9d6cd; }
@@ -997,6 +1014,148 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .backcover-name { margin: 0; font-size: 1.6rem; font-weight: 700; letter-spacing: -0.03em; }
 .backcover-links { display: flex; gap: 1.6rem; margin: 0; padding: 0; list-style: none; font-size: 1.05rem; }
-.backcover-links a { font-weight: 700; text-decoration: none; border-bottom: 2px solid currentColor; padding-bottom: 1px; }
+.backcover-links a { display: inline-flex; align-items: center; gap: 0.45rem; font-weight: 700; text-decoration: none; }
+.backcover-links a span { border-bottom: 2px solid currentColor; padding-bottom: 1px; }
+.backcover-links svg { width: 1.25rem; height: 1.25rem; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .backcover-links a:hover { color: var(--green-deep); }
 .backcover-fine { margin: 1.2rem 0 0; font-size: 0.8rem; color: var(--graphite); }
+
+
+/* ---------- Controls live in the green band (v9) ---------- */
+
+.cover-band {
+  height: auto;
+  min-height: 2.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.35rem;
+}
+.band-controls { display: flex; gap: 0.15rem; }
+.band-btn {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--paper);
+  cursor: pointer;
+  transition: background-color 150ms ease;
+}
+@media (pointer: coarse) { .band-btn { width: 44px; height: 44px; } }
+.band-btn svg {
+  width: 1.2rem; height: 1.2rem;
+  fill: none; stroke: currentColor; stroke-width: 1.8;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+.band-btn .i-moon { fill: currentColor; stroke: none; }
+.band-btn:hover { background: color-mix(in srgb, var(--paper) 16%, transparent); }
+.band-btn:focus-visible { outline: 2px solid var(--paper); outline-offset: -3px; }
+.band-btn[data-switch="markup"][aria-checked="true"] { background: var(--paper); color: var(--redline); }
+.band-btn[data-switch="theme"] .i-sun { display: none; }
+.band-btn[data-switch="theme"][aria-checked="true"] .i-moon { display: none; }
+.band-btn[data-switch="theme"][aria-checked="true"] .i-sun { display: block; }
+
+/* Running header on inner pages: the same green band, name on the left */
+.runhead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 2.75rem;
+  margin-top: 1.5rem;
+  padding: 0 0.35rem 0 0.9rem;
+  background: var(--green);
+}
+.runhead .home {
+  color: var(--paper);
+  text-decoration: none;
+  font-family: var(--sans);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.runhead .home:hover { text-decoration: underline; color: var(--paper); }
+
+/* Desktop tabs sit just inside the edge so overlay scrollbars never cover them */
+@media (min-width: 960px) {
+  .tabs { right: 0.75rem; }
+  .tab { border-radius: 9px; transform: translateX(0.6rem); }
+  .tab:hover, .tab:focus-visible { transform: translateX(-0.2rem); }
+  .tab[aria-current] { transform: translateX(-0.45rem); }
+}
+
+/* ---------- Names link home ---------- */
+.name-link, .backcover-name a { color: inherit; text-decoration: none; }
+.name-link:hover, .backcover-name a:hover { color: inherit; text-decoration: underline; text-decoration-thickness: 0.06em; text-underline-offset: 0.08em; }
+
+/* ---------- Markup switch: revision delta ---------- */
+.band-btn .i-delta { stroke-width: 1.9; }
+.band-btn[data-switch="markup"][aria-checked="true"] .i-delta { fill: currentColor; }
+
+/* ---------- Fig. 1: the operator, and the operator taken apart ---------- */
+.fig-stage {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 560 / 470;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.fig-stage:focus-visible { outline: 2px solid var(--green); outline-offset: 4px; }
+.fig-stage .portrait {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 650ms cubic-bezier(.2,.8,.2,1), opacity 450ms ease;
+}
+.fig-stage .exploded { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.x-ln { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.x-th { stroke-width: 1.2; }
+.x-dash { fill: none; stroke: currentColor; stroke-width: 1; stroke-dasharray: 4 5; opacity: .55; }
+.x-fillc { fill: currentColor; }
+.x-soft { fill: currentColor; opacity: .12; }
+.x-num { font: 700 13px var(--sans); fill: currentColor; text-anchor: middle; dominant-baseline: central; }
+.x-bub { fill: none; stroke: currentColor; stroke-width: 1.5; }
+
+.exploded .part {
+  opacity: 0;
+  transform: translate(var(--dx), var(--dy)) scale(.2);
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 650ms cubic-bezier(.2,.8,.2,1), opacity 300ms ease;
+}
+.exploded .axis { opacity: 0; transition: opacity 300ms ease; }
+.cover-fig.is-open .portrait { transform: scale(.46); opacity: .55; }
+.cover-fig.is-open .exploded .part { opacity: 1; transform: none; }
+.cover-fig.is-open .exploded .part:nth-of-type(2) { transition-delay: 40ms; }
+.cover-fig.is-open .exploded .part:nth-of-type(3) { transition-delay: 80ms; }
+.cover-fig.is-open .exploded .part:nth-of-type(4) { transition-delay: 120ms; }
+.cover-fig.is-open .exploded .part:nth-of-type(5) { transition-delay: 160ms; }
+.cover-fig.is-open .exploded .axis { opacity: 1; transition-delay: 300ms; }
+
+.cover-fig figcaption .cap-parts { display: none; }
+.cover-fig.is-open figcaption .cap-whole { display: none; }
+.cover-fig.is-open figcaption .cap-parts { display: inline; }
+.cap-hint { color: var(--green); }
+.hint-tap { display: none; }
+@media (hover: none) { .hint-hover { display: none; } .hint-tap { display: inline; } }
+
+.cover-fig .parts { max-height: 0; overflow: hidden; opacity: 0; margin-top: 0; padding-top: 0; border-top-color: transparent; transition: max-height 450ms cubic-bezier(.2,.8,.2,1), opacity 300ms ease, margin-top 300ms ease, padding-top 300ms ease; }
+.cover-fig.is-open .parts { max-height: 9rem; opacity: 1; margin-top: 0.5rem; padding-top: 0.5rem; border-top-color: var(--rule); }
+
+@media (prefers-reduced-motion: reduce) {
+  .fig-stage .portrait, .exploded .part, .exploded .axis, .cover-fig .parts { transition: none !important; }
+}
+
+/* ---------- Contact icons in the band ---------- */
+a.band-btn { text-decoration: none; }
+a.band-btn:hover { color: var(--paper); }
+.band-sep { width: 1px; align-self: stretch; margin: 0.55rem 0.3rem; background: color-mix(in srgb, var(--paper) 35%, transparent); }

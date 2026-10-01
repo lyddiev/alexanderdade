@@ -6,8 +6,7 @@
 <title>Alexander Dade</title>
 <meta name="description" content="Alexander Dade is a technical program manager who brings new technology into large operations. Writing samples, work history, and contact.">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#f3f4f0" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#15191b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f3f4f0">
 <!-- Open Graph. Link preview image. -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Alexander Dade">
@@ -15,27 +14,15 @@
 <meta property="og:image" content="https://alexanderdade.com/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/site.css?v=8">
-<script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
-<script src="assets/site.js?v=7" defer></script>
+<script src="assets/theme.js?v=10"></script>
+<link rel="stylesheet" href="assets/site.css?v=10">
+<script src="assets/site.js?v=10" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <div class="frame">
-<header class="masthead masthead--home">
-  <nav aria-label="Main">
-    <ul>
-      <li><a href="index.html#samples">Samples</a></li>
-      <li><a href="index.html#record">History</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
-    </ul>
-  </nav>
-  <div class="controls">
-    <button class="switch" type="button" role="switch" aria-checked="false" data-switch="markup"><span class="switch-label">Show markup</span><span class="switch-track" aria-hidden="true"></span></button>
-    <button class="switch" type="button" role="switch" aria-checked="false" data-switch="theme"><span class="switch-label">Night</span><span class="switch-track" aria-hidden="true"></span></button>
-  </div>
-</header>
 <nav class="tabs" aria-label="Sections">
+  <a class="tab tab-about" href="index.html#about"><span>About</span></a>
   <a class="tab tab-samples" href="index.html#samples"><span>Samples</span></a>
   <a class="tab tab-record" href="index.html#record"><span>History</span></a>
   <a class="tab tab-contact" href="index.html#contact"><span>Contact</span></a>
@@ -43,8 +30,11 @@
 <main id="main">
 
 <section class="cover" aria-labelledby="cover-title">
-  <div class="cover-band" aria-hidden="true"></div>
-  <h1 id="cover-title">Alexander Dade</h1>
+  <div class="cover-band">
+    <div class="band-controls band-contact"><a class="band-btn" href="mailto:connectwithalexander@icloud.com" aria-label="Email" title="Email"><svg class="i-mail" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.8 7.2 12 13l8.2-5.8"/></svg></a><a class="band-btn" href="https://www.linkedin.com/in/alexanderdade/" aria-label="LinkedIn" title="LinkedIn"><svg class="i-in" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3.5"/><path d="M8.2 10.6v6M8.2 7.6v.01M12 16.6v-6M12 13.4c0-1.7 1.1-2.9 2.6-2.9s2.4 1.1 2.4 2.9v3.2"/></svg></a></div>
+    <div class="band-controls"><button class="band-btn" type="button" role="switch" aria-checked="false" data-switch="markup" aria-label="Show tracked changes" title="Show tracked changes"><svg class="i-delta" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5 20.5 19h-17z"/></svg></button><button class="band-btn" type="button" role="switch" aria-checked="false" data-switch="theme" aria-label="Dark mode" title="Dark mode"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg></button></div>
+  </div>
+  <h1 id="cover-title"><a class="name-link" href="/">Alexander Dade</a></h1>
   <div class="cover-main">
     <div class="cover-text">
       <p class="cover-sub">Operator&rsquo;s manual</p>
@@ -59,9 +49,75 @@
       <p class="cover-scope">Technical program management for global operations, knowledge systems, and AI deployment.</p>
     </div>
     <figure class="cover-fig">
-      <img class="portrait portrait-light" src="assets/img/portrait.png" width="1073" height="933" alt="Engraved portrait of Alexander Dade.">
-      <img class="portrait portrait-dark" src="assets/img/portrait-dark.png" width="1073" height="933" alt="Engraved portrait of Alexander Dade." loading="lazy">
-      <figcaption>Fig. 1. The operator.</figcaption>
+      <button class="fig-stage" type="button" aria-pressed="false" aria-label="Fig. 1. Take the operator apart">
+        <img class="portrait portrait-light" src="assets/img/portrait.png" width="1073" height="933" alt="">
+        <img class="portrait portrait-dark" src="assets/img/portrait-dark.png" width="1073" height="933" alt="" loading="lazy">
+        <svg class="exploded" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 470" aria-hidden="true" focusable="false">
+          <!-- leader lines from the operator to each part -->
+          <g class="axis">
+            <path class="x-dash" d="M215 175 L170 120 M345 175 L400 125 M215 270 L170 320 M345 270 L400 310"/>
+          </g>
+          <!-- 1. chef's knife -->
+          <g class="part" style="--dx:130px;--dy:120px">
+            <g transform="translate(40 92) rotate(-14)">
+              <path class="x-soft" d="M70 -2 L206 6 Q216 7 224 12 Q176 30 70 28 Z"/>
+              <path class="x-ln" d="M70 -2 L206 6 Q216 7 224 12 Q176 30 70 28 Z"/>
+              <path class="x-ln x-th" d="M78 6 L196 10"/>
+              <rect class="x-ln" x="0" y="7" width="70" height="14" rx="6"/>
+              <circle class="x-fillc" cx="18" cy="14" r="2.2"/><circle class="x-fillc" cx="36" cy="14" r="2.2"/><circle class="x-fillc" cx="54" cy="14" r="2.2"/>
+              <path class="x-ln" d="M70 4 V24"/>
+            </g>
+            <path class="x-ln x-th" d="M150 70 L176 34"/><circle class="x-bub" cx="186" cy="24" r="13"/><text class="x-num" x="186" y="24">1</text>
+          </g>
+          <!-- 2. fountain pen -->
+          <g class="part" style="--dx:-140px;--dy:110px">
+            <g transform="translate(330 60) rotate(28)">
+              <rect class="x-ln" x="0" y="0" width="120" height="22" rx="10"/>
+              <rect class="x-soft" x="0" y="0" width="50" height="22" rx="10"/>
+              <path class="x-ln" d="M50 0 V22"/>
+              <path class="x-ln" d="M14 -2 V-10 H60 V-2"/>
+              <path class="x-ln" d="M120 3 L156 11 L120 19"/>
+              <path class="x-ln x-th" d="M132 11 H152"/>
+              <circle class="x-fillc" cx="136" cy="11" r="2"/>
+            </g>
+            <path class="x-ln x-th" d="M440 130 L486 150"/><circle class="x-bub" cx="498" cy="156" r="13"/><text class="x-num" x="498" y="156">2</text>
+          </g>
+          <!-- 3. hard hat -->
+          <g class="part" style="--dx:120px;--dy:-120px">
+            <g transform="translate(70 300)">
+              <path class="x-soft" d="M20 70 Q20 0 90 0 Q160 0 160 70 Z"/>
+              <path class="x-ln" d="M20 70 Q20 0 90 0 Q160 0 160 70"/>
+              <path class="x-ln" d="M0 70 Q90 92 180 70 Q90 80 0 70 Z"/>
+              <path class="x-ln x-th" d="M90 2 V68 M62 6 Q56 36 56 68 M118 6 Q124 36 124 68"/>
+            </g>
+            <path class="x-ln x-th" d="M118 302 L96 270"/><circle class="x-bub" cx="88" cy="258" r="13"/><text class="x-num" x="88" y="258">3</text>
+          </g>
+          <!-- 4. laptop with schedule -->
+          <g class="part" style="--dx:-145px;--dy:-110px">
+            <g transform="translate(330 270)">
+              <rect class="x-ln" x="10" y="0" width="170" height="108" rx="6"/>
+              <rect class="x-ln x-th" x="22" y="12" width="146" height="84" rx="2"/>
+              <path class="x-ln x-th" d="M30 26 H160 M30 82 H160" opacity=".5"/>
+              <rect class="x-fillc" x="34" y="34" width="44" height="8" rx="2"/>
+              <rect class="x-fillc" x="62" y="48" width="60" height="8" rx="2" opacity=".7"/>
+              <rect class="x-fillc" x="96" y="62" width="40" height="8" rx="2" opacity=".45"/>
+              <path class="x-fillc" d="M146 66 l6 -6 l6 6 l-6 6 z"/>
+              <path class="x-ln" d="M0 118 H190 L180 108 H10 Z"/>
+            </g>
+            <path class="x-ln x-th" d="M500 300 L528 286"/><circle class="x-bub" cx="540" cy="279" r="13"/><text class="x-num" x="540" y="279">4</text>
+          </g>
+        </svg>
+      </button>
+      <ol class="parts">
+        <li>Knife, chef&rsquo;s. Rev. 1.</li>
+        <li>Pen, fountain. Rev. 2.</li>
+        <li>Hat, hard. Revs. 4 and 9, plant floor.</li>
+        <li>Laptop, schedule loaded. Rev. 10.</li>
+      </ol>
+      <figcaption>
+        <span class="cap-whole">Fig. 1. The operator. <span class="cap-hint"><span class="hint-hover">Hover</span><span class="hint-tap">Tap</span> to take apart.</span></span>
+        <span class="cap-parts">Fig. 1a. The operator, exploded view.</span>
+      </figcaption>
     </figure>
   </div>
   <table class="doc-control">
@@ -75,12 +131,12 @@
   </table>
 </section>
 
-<section class="section" aria-labelledby="about-h">
+<section class="section" id="about" aria-labelledby="about-h">
   <h2 id="about-h">About</h2>
   <div class="body">
     <p class="lead">Technical program manager, most recently at Meta, running AI tool deployments and vendor site launches for its global support operation. Before that, took a new glass melting technology at O-I from the R&amp;D lab into production plants.</p>
     <p>Started out as a professional chef, then cut my teeth in tech as a technical writer. I still consult and write the procedures, runbooks, and knowledge bases programs depend on, and a few of them are below.</p>
-    <p>Available for new opportunities. Remote, or close to Orange County.</p>
+    <p><a href="mailto:connectwithalexander@icloud.com?subject=Opportunity">Available</a> for new opportunities. Remote, or close to Orange County.</p>
   </div>
 </section>
 
@@ -166,8 +222,8 @@
   </div>
 </section>
 
-<section class="section" id="qualifications" aria-labelledby="qual-h">
-  <h2 id="qual-h">Qualifications</h2>
+<section class="section" id="specs" aria-labelledby="specs-h">
+  <h2 id="specs-h">Specs</h2>
   <div class="body">
     <ul class="record quals">
       <li>
@@ -235,10 +291,10 @@
 <footer class="backcover">
   <div class="backcover-band" aria-hidden="true"></div>
   <div class="backcover-grid">
-    <p class="backcover-name">Alexander Dade</p>
+    <p class="backcover-name"><a href="/">Alexander Dade</a></p>
     <ul class="backcover-links">
-      <li><a href="mailto:connectwithalexander@icloud.com">Email</a></li>
-      <li><a href="https://www.linkedin.com/in/alexanderdade/">LinkedIn</a></li>
+      <li><a href="mailto:connectwithalexander@icloud.com"><svg class="i-mail" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.8 7.2 12 13l8.2-5.8"/></svg><span>Email</span></a></li>
+      <li><a href="https://www.linkedin.com/in/alexanderdade/"><svg class="i-in" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3.5"/><path d="M8.2 10.6v6M8.2 7.6v.01M12 16.6v-6M12 13.4c0-1.7 1.1-2.9 2.6-2.9s2.4 1.1 2.4 2.9v3.2"/></svg><span>LinkedIn</span></a></li>
     </ul>
   </div>
   <p class="backcover-fine">AD-001, Rev. 10. &copy; 2026 Alexander Dade</p>
