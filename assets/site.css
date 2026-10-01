@@ -319,16 +319,6 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .cover-fig img { width: 100%; }
 
-.cover-fig .parts {
-  margin: 0.5rem 0 0;
-  padding: 0.5rem 0 0 1.4rem;
-  border-top: 1px solid var(--rule);
-  font-size: 0.75rem;
-  line-height: 1.5;
-  color: var(--graphite);
-  font-variant-numeric: tabular-nums;
-}
-.cover-fig .parts li::marker { font-weight: 700; color: var(--ink); }
 .cover-fig figcaption {
   margin-top: 0.5rem;
   font-family: var(--sans);
@@ -1148,14 +1138,75 @@ img { max-width: 100%; height: auto; display: block; }
 .hint-tap { display: none; }
 @media (hover: none) { .hint-hover { display: none; } .hint-tap { display: inline; } }
 
-.cover-fig .parts { max-height: 0; overflow: hidden; opacity: 0; margin-top: 0; padding-top: 0; border-top-color: transparent; transition: max-height 450ms cubic-bezier(.2,.8,.2,1), opacity 300ms ease, margin-top 300ms ease, padding-top 300ms ease; }
-.cover-fig.is-open .parts { max-height: 9rem; opacity: 1; margin-top: 0.5rem; padding-top: 0.5rem; border-top-color: var(--rule); }
+.cover-fig .parts-wrap { max-height: 0; overflow: hidden; opacity: 0; transition: max-height 450ms cubic-bezier(.2,.8,.2,1), opacity 300ms ease; }
+.cover-fig.is-open .parts-wrap { max-height: 12rem; opacity: 1; }
 
 @media (prefers-reduced-motion: reduce) {
-  .fig-stage .portrait, .exploded .part, .exploded .axis, .cover-fig .parts { transition: none !important; }
+  .fig-stage .portrait, .exploded .part, .exploded .axis, .cover-fig .parts-wrap, .record li { transition: none !important; }
 }
 
 /* ---------- Contact icons in the band ---------- */
 a.band-btn { text-decoration: none; }
 a.band-btn:hover { color: var(--paper); }
 .band-sep { width: 1px; align-self: stretch; margin: 0.55rem 0.3rem; background: color-mix(in srgb, var(--paper) 35%, transparent); }
+
+/* ---------- Fig. 1 parts list: a real parts table that links into the history ---------- */
+.cover-fig .parts {
+  width: 100%;
+  margin: 0.6rem 0 0.2rem;
+  border-collapse: collapse;
+  font-size: 0.75rem;
+  line-height: 1.35;
+  color: var(--graphite);
+  font-variant-numeric: tabular-nums;
+}
+.cover-fig .parts th, .cover-fig .parts td { padding: 0.28rem 0.4rem; border: 1px solid var(--rule); text-align: left; vertical-align: top; }
+.cover-fig .parts th { font-weight: 500; font-size: 0.68rem; }
+.cover-fig .parts .item { width: 2.2rem; text-align: center; font-weight: 700; color: var(--ink); }
+.cover-fig .parts a { font-weight: 700; color: var(--green); text-decoration: underline; text-underline-offset: 2px; padding: 0 0.1rem; }
+.cover-fig .parts tr { transition: background-color 150ms ease; }
+.cover-fig .parts tbody tr:hover { background: color-mix(in srgb, var(--green) 9%, transparent); }
+
+/* hovering a row picks out its part in the drawing */
+.cover-fig[data-hl] .exploded .part { opacity: .18; }
+.cover-fig[data-hl="1"] .exploded .part-1,
+.cover-fig[data-hl="2"] .exploded .part-2,
+.cover-fig[data-hl="3"] .exploded .part-3,
+.cover-fig[data-hl="4"] .exploded .part-4 { opacity: 1; }
+
+/* history rows: item badge pointing back to Fig. 1, and a flash when arrived at */
+.part-ref {
+  display: inline-grid; place-items: center;
+  width: 1.15rem; height: 1.15rem;
+  margin-left: 0.45rem; padding: 0;
+  border: 1px solid currentColor; border-radius: 50%;
+  background: none; color: var(--graphite);
+  font: 700 0.62rem/1 var(--sans);
+  vertical-align: 0.1em;
+  cursor: pointer;
+}
+.part-ref:hover, .part-ref:focus-visible { color: var(--green); }
+@media (pointer: coarse) { .part-ref { width: 1.5rem; height: 1.5rem; font-size: 0.72rem; } }
+.record li { scroll-margin-top: 30vh; transition: background-color 900ms ease; }
+.record li { transition: background-color 900ms ease, box-shadow 900ms ease; }
+.record li.is-flagged { background: var(--balloon); box-shadow: -0.6rem 0 0 var(--balloon), 0.6rem 0 0 var(--balloon); transition: none; }
+.section, .request { scroll-margin-top: 1rem; }
+
+/* footer: icons only, matching the band */
+.backcover-links { gap: 0.6rem; }
+.backcover-links a { display: grid; place-items: center; width: 2.5rem; height: 2.5rem; border-radius: 4px; color: var(--ink); }
+.backcover-links a:hover { background: color-mix(in srgb, var(--green) 10%, transparent); color: var(--green); }
+.backcover-links svg { width: 1.45rem; height: 1.45rem; }
+
+/* back-to-top tab: appears once you are past the cover */
+.tab-top { display: none !important; }
+.tabs.show-top .tab-top { display: grid !important; place-items: center; }
+.tab-top svg { width: 1.1rem; height: 1.1rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.tab-top { --tab-bg: #8a9c94; }
+:root[data-theme="dark"] .tab-top { --tab-bg: #5f7a6d; }
+@media (min-width: 960px) {
+  .tab-top { width: 3.1rem; height: 2.9rem; padding: 0 0 0 0.9rem !important; }
+}
+@media (max-width: 959px) {
+  .tab-top { flex: 0 0 2.9rem !important; max-width: 2.9rem; padding-left: 0 !important; padding-right: 0 !important; }
+}

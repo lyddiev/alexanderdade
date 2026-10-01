@@ -18,10 +18,11 @@
 <link rel="stylesheet" href="assets/site.css?v=10">
 <script src="assets/site.js?v=10" defer></script>
 </head>
-<body>
+<body id="top">
 <a class="skip" href="#main">Skip to content</a>
 <div class="frame">
 <nav class="tabs" aria-label="Sections">
+  <a class="tab tab-top" href="#top" aria-label="Back to top" title="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg></a>
   <a class="tab tab-about" href="index.html#about"><span>About</span></a>
   <a class="tab tab-samples" href="index.html#samples"><span>Samples</span></a>
   <a class="tab tab-record" href="index.html#record"><span>History</span></a>
@@ -58,7 +59,7 @@
             <path class="x-dash" d="M215 175 L170 120 M345 175 L400 125 M215 270 L170 320 M345 270 L400 310"/>
           </g>
           <!-- 1. chef's knife -->
-          <g class="part" style="--dx:130px;--dy:120px">
+          <g class="part part-1" style="--dx:130px;--dy:120px">
             <g transform="translate(40 92) rotate(-14)">
               <path class="x-soft" d="M70 -2 L206 6 Q216 7 224 12 Q176 30 70 28 Z"/>
               <path class="x-ln" d="M70 -2 L206 6 Q216 7 224 12 Q176 30 70 28 Z"/>
@@ -70,7 +71,7 @@
             <path class="x-ln x-th" d="M150 70 L176 34"/><circle class="x-bub" cx="186" cy="24" r="13"/><text class="x-num" x="186" y="24">1</text>
           </g>
           <!-- 2. fountain pen -->
-          <g class="part" style="--dx:-140px;--dy:110px">
+          <g class="part part-2" style="--dx:-140px;--dy:110px">
             <g transform="translate(330 60) rotate(28)">
               <rect class="x-ln" x="0" y="0" width="120" height="22" rx="10"/>
               <rect class="x-soft" x="0" y="0" width="50" height="22" rx="10"/>
@@ -83,7 +84,7 @@
             <path class="x-ln x-th" d="M440 130 L486 150"/><circle class="x-bub" cx="498" cy="156" r="13"/><text class="x-num" x="498" y="156">2</text>
           </g>
           <!-- 3. hard hat -->
-          <g class="part" style="--dx:120px;--dy:-120px">
+          <g class="part part-3" style="--dx:120px;--dy:-120px">
             <g transform="translate(70 300)">
               <path class="x-soft" d="M20 70 Q20 0 90 0 Q160 0 160 70 Z"/>
               <path class="x-ln" d="M20 70 Q20 0 90 0 Q160 0 160 70"/>
@@ -93,7 +94,7 @@
             <path class="x-ln x-th" d="M118 302 L96 270"/><circle class="x-bub" cx="88" cy="258" r="13"/><text class="x-num" x="88" y="258">3</text>
           </g>
           <!-- 4. laptop with schedule -->
-          <g class="part" style="--dx:-145px;--dy:-110px">
+          <g class="part part-4" style="--dx:-145px;--dy:-110px">
             <g transform="translate(330 270)">
               <rect class="x-ln" x="10" y="0" width="170" height="108" rx="6"/>
               <rect class="x-ln x-th" x="22" y="12" width="146" height="84" rx="2"/>
@@ -108,15 +109,21 @@
           </g>
         </svg>
       </button>
-      <ol class="parts">
-        <li>Knife, chef&rsquo;s. Rev. 1.</li>
-        <li>Pen, fountain. Rev. 2.</li>
-        <li>Hat, hard. Revs. 4 and 9, plant floor.</li>
-        <li>Laptop, schedule loaded. Rev. 10.</li>
-      </ol>
+      <div class="parts-wrap">
+        <table class="parts">
+          <caption class="visually-hidden">Parts list for Fig. 1</caption>
+          <thead><tr><th scope="col">Item</th><th scope="col">Part</th><th scope="col">Installed</th></tr></thead>
+          <tbody>
+            <tr data-part="1"><td class="item">1</td><td>Knife, chef&rsquo;s</td><td>Rev. <a href="#rev-1" data-rev="1">1</a></td></tr>
+            <tr data-part="2"><td class="item">2</td><td>Pen, fountain</td><td>Revs. <a href="#rev-2" data-rev="2">2</a>, <a href="#rev-5" data-rev="5">5</a>, <a href="#rev-6" data-rev="6">6</a></td></tr>
+            <tr data-part="3"><td class="item">3</td><td>Hat, hard</td><td>Revs. <a href="#rev-3" data-rev="3">3</a>, <a href="#rev-4" data-rev="4">4</a>, <a href="#rev-9" data-rev="9">9</a></td></tr>
+            <tr data-part="4"><td class="item">4</td><td>Laptop</td><td>Revs. <a href="#rev-7" data-rev="7">7</a>, <a href="#rev-8" data-rev="8">8</a>, <a href="#rev-10" data-rev="10">10</a></td></tr>
+          </tbody>
+        </table>
+      </div>
       <figcaption>
         <span class="cap-whole">Fig. 1. The operator. <span class="cap-hint"><span class="hint-hover">Hover</span><span class="hint-tap">Tap</span> to take apart.</span></span>
-        <span class="cap-parts">Fig. 1a. The operator, exploded view.</span>
+        <span class="cap-parts">Fig. 1a. The operator, exploded view. Revision numbers link to the history.</span>
       </figcaption>
     </figure>
   </div>
@@ -178,44 +185,44 @@
   <h2 id="record-h">Revision history</h2>
   <div class="body">
     <ul class="record">
-      <li>
-        <span class="when"><span class="rev">Rev. 10</span>2025 to 2026</span>
+      <li id="rev-10">
+        <span class="when"><span class="rev">Rev. 10<button class="part-ref" type="button" data-part="4" aria-label="Fig. 1, item 4" title="Fig. 1, item 4">4</button></span>2025 to 2026</span>
         <p class="what"><span class="role">Senior Technical Program Manager, Global Scaled Operations</span><span class="org">Meta</span><span class="line">AI tool deployments and vendor site launches for the global support operation.</span></p>
       </li>
-      <li>
-        <span class="when"><span class="rev">Rev. 9</span>2023 to 2024</span>
+      <li id="rev-9">
+        <span class="when"><span class="rev">Rev. 9<button class="part-ref" type="button" data-part="3" aria-label="Fig. 1, item 3" title="Fig. 1, item 3">3</button></span>2023 to 2024</span>
         <p class="what"><span class="role">Senior Technical Program Manager, Operations</span><span class="org">O-I</span><span class="line">Took a new glass melting technology from the R&D lab into two production plants.</span></p>
       </li>
-      <li>
-        <span class="when"><span class="rev">Rev. 8</span>2022 to 2023</span>
+      <li id="rev-8">
+        <span class="when"><span class="rev">Rev. 8<button class="part-ref" type="button" data-part="4" aria-label="Fig. 1, item 4" title="Fig. 1, item 4">4</button></span>2022 to 2023</span>
         <p class="what"><span class="role">Technical Program Manager, Global Product &amp; Services Operations</span><span class="org">Meta</span><span class="line">Rebuilt how enterprise support handled escalations and help center content.</span></p>
       </li>
-      <li>
-        <span class="when"><span class="rev">Rev. 7</span>2021 to 2022</span>
+      <li id="rev-7">
+        <span class="when"><span class="rev">Rev. 7<button class="part-ref" type="button" data-part="4" aria-label="Fig. 1, item 4" title="Fig. 1, item 4">4</button></span>2021 to 2022</span>
         <p class="what"><span class="role">Technical Program Manager, Platform Delivery</span><span class="org">LexisNexis</span><span class="line">Launched a platform implementation across four environments and three owning teams.</span></p>
       </li>
-      <li>
-        <span class="when"><span class="rev">Rev. 6</span>2020 to now</span>
+      <li id="rev-6">
+        <span class="when"><span class="rev">Rev. 6<button class="part-ref" type="button" data-part="2" aria-label="Fig. 1, item 2" title="Fig. 1, item 2">2</button></span>2020 to now</span>
         <p class="what"><span class="role">Founder &amp; Principal Consultant</span><span class="org">Doc &amp; Writer Consulting</span><span class="line">Program delivery and documentation for clients including AIRBOX, Bankers&rsquo; Bank of the West, and Idomoo.</span></p>
       </li>
-      <li>
-        <span class="when"><span class="rev">Rev. 5</span>2020 to 2021</span>
+      <li id="rev-5">
+        <span class="when"><span class="rev">Rev. 5<button class="part-ref" type="button" data-part="2" aria-label="Fig. 1, item 2" title="Fig. 1, item 2">2</button></span>2020 to 2021</span>
         <p class="what"><span class="role">Technical Program Manager, Content Platforms</span><span class="org">Hunter Douglas</span><span class="line">Product, installation, and training content for dealers and distributors.</span></p>
       </li>
-      <li>
-        <span class="when"><span class="rev">Rev. 4</span>2019 to 2020</span>
+      <li id="rev-4">
+        <span class="when"><span class="rev">Rev. 4<button class="part-ref" type="button" data-part="3" aria-label="Fig. 1, item 3" title="Fig. 1, item 3">3</button></span>2019 to 2020</span>
         <p class="what"><span class="role">Program Manager, Operations</span><span class="org">O-I</span><span class="line">Ran the pilot that set up a global rollout across two manufacturing plants.</span></p>
       </li>
-      <li>
-        <span class="when"><span class="rev">Rev. 3</span>2018 to 2019</span>
+      <li id="rev-3">
+        <span class="when"><span class="rev">Rev. 3<button class="part-ref" type="button" data-part="3" aria-label="Fig. 1, item 3" title="Fig. 1, item 3">3</button></span>2018 to 2019</span>
         <p class="what"><span class="role">Project Manager</span><span class="org">Faustel</span><span class="line">Industrial equipment projects from design workshops through on-site commissioning.</span></p>
       </li>
-      <li>
-        <span class="when"><span class="rev">Rev. 2</span>2017 to 2018</span>
+      <li id="rev-2">
+        <span class="when"><span class="rev">Rev. 2<button class="part-ref" type="button" data-part="2" aria-label="Fig. 1, item 2" title="Fig. 1, item 2">2</button></span>2017 to 2018</span>
         <p class="what"><span class="role">Lead Technical Writer</span><span class="org">Concentrix</span><span class="line">Agent training and quality standards for a consumer electronics client.</span></p>
       </li>
-      <li>
-        <span class="when"><span class="rev">Rev. 1</span>Before that</span>
+      <li id="rev-1">
+        <span class="when"><span class="rev">Rev. 1<button class="part-ref" type="button" data-part="1" aria-label="Fig. 1, item 1" title="Fig. 1, item 1">1</button></span>Before that</span>
         <p class="what"><span class="role">Professional chef</span><span class="line">Kitchens, before any of this.</span></p>
       </li>
     </ul>
@@ -293,8 +300,8 @@
   <div class="backcover-grid">
     <p class="backcover-name"><a href="/">Alexander Dade</a></p>
     <ul class="backcover-links">
-      <li><a href="mailto:connectwithalexander@icloud.com"><svg class="i-mail" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.8 7.2 12 13l8.2-5.8"/></svg><span>Email</span></a></li>
-      <li><a href="https://www.linkedin.com/in/alexanderdade/"><svg class="i-in" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3.5"/><path d="M8.2 10.6v6M8.2 7.6v.01M12 16.6v-6M12 13.4c0-1.7 1.1-2.9 2.6-2.9s2.4 1.1 2.4 2.9v3.2"/></svg><span>LinkedIn</span></a></li>
+      <li><a href="mailto:connectwithalexander@icloud.com" aria-label="Email" title="Email"><svg class="i-mail" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.8 7.2 12 13l8.2-5.8"/></svg></a></li>
+      <li><a href="https://www.linkedin.com/in/alexanderdade/" aria-label="LinkedIn" title="LinkedIn"><svg class="i-in" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3.5"/><path d="M8.2 10.6v6M8.2 7.6v.01M12 16.6v-6M12 13.4c0-1.7 1.1-2.9 2.6-2.9s2.4 1.1 2.4 2.9v3.2"/></svg></a></li>
     </ul>
   </div>
   <p class="backcover-fine">AD-001, Rev. 10. &copy; 2026 Alexander Dade</p>
