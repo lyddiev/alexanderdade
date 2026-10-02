@@ -1542,3 +1542,36 @@ ins.mk-ins { text-decoration: none; }
 .show-markup .section > h2 .mk { font-size: 0.85em; }
 .show-markup .section > h2 { max-width: 100%; }
 .show-markup .section > h2 .mk { display: block; margin: 0 0 0.2em; }
+
+/* ---------- Tab palette: one even gradient, top to bottom, in both themes ---------- */
+:root[data-theme="light"] .tabs .tab-top { --tab-bg: #6a8577; }
+:root[data-theme="light"] .tabs .tab-overview { --tab-bg: #577365; }
+:root[data-theme="light"] #overview { --chip: #577365; }
+:root[data-theme="light"] .tabs .tab-samples { --tab-bg: #4a6658; }
+:root[data-theme="light"] #samples { --chip: #4a6658; }
+:root[data-theme="light"] .tabs .tab-record { --tab-bg: #3d594c; }
+:root[data-theme="light"] #record { --chip: #3d594c; }
+:root[data-theme="light"] .tabs .tab-specs { --tab-bg: #304b40; }
+:root[data-theme="light"] #specs { --chip: #304b40; }
+:root[data-theme="light"] .tabs .tab-contact { --tab-bg: #233a31; }
+:root[data-theme="light"] .tabs .tab-appx:nth-of-type(2) { --tab-bg: #577365; }
+:root[data-theme="light"] .tabs .tab-appx:nth-of-type(3) { --tab-bg: #4a6658; }
+:root[data-theme="light"] .tabs .tab-appx:nth-of-type(4) { --tab-bg: #3d594c; }
+:root[data-theme="light"] .tabs .tab-appx:nth-of-type(5) { --tab-bg: #304b40; }
+:root[data-theme="light"] .tabs .tab-appx:nth-of-type(6) { --tab-bg: #233a31; }
+:root[data-theme="dark"] .tabs .tab-top { --tab-bg: #7fa592; }
+:root[data-theme="dark"] .tabs .tab-overview { --tab-bg: #8fb3a0; }
+:root[data-theme="dark"] #overview { --chip: #8fb3a0; }
+:root[data-theme="dark"] .tabs .tab-samples { --tab-bg: #9fbfae; }
+:root[data-theme="dark"] #samples { --chip: #9fbfae; }
+:root[data-theme="dark"] .tabs .tab-record { --tab-bg: #b0cbbc; }
+:root[data-theme="dark"] #record { --chip: #b0cbbc; }
+:root[data-theme="dark"] .tabs .tab-specs { --tab-bg: #c0d6ca; }
+:root[data-theme="dark"] #specs { --chip: #c0d6ca; }
+:root[data-theme="dark"] .tabs .tab-contact { --tab-bg: #d0e1d7; }
+:root[data-theme="dark"] .tabs .tab-appx:nth-of-type(2) { --tab-bg: #8fb3a0; }
+:root[data-theme="dark"] .tabs .tab-appx:nth-of-type(3) { --tab-bg: #9fbfae; }
+:root[data-theme="dark"] .tabs .tab-appx:nth-of-type(4) { --tab-bg: #b0cbbc; }
+:root[data-theme="dark"] .tabs .tab-appx:nth-of-type(5) { --tab-bg: #c0d6ca; }
+:root[data-theme="dark"] .tabs .tab-appx:nth-of-type(6) { --tab-bg: #d0e1d7; }
+:root[data-theme="light"] .tabs .tab, :root[data-theme="light"] .tabs .tab:hover { color: #f3f4f0; }

@@ -73,12 +73,22 @@
       if (on) fig.classList.add('was-opened');
       stage.setAttribute('aria-pressed', on ? 'true' : 'false');
     };
-    fig.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') setOpen(true); });
-    fig.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse' && !pinned) setOpen(false); fig.removeAttribute('data-hl'); });
-    stage.addEventListener('click', function (e) {
-      pinned = !pinned;
-      var mouse = e.pointerType === 'mouse' || (e.detail > 0 && window.matchMedia('(hover: hover)').matches);
-      setOpen(pinned || mouse);
+    // Hover opens it; a click pins it open or closes it outright. After a click-close
+    // it stays shut until the pointer leaves and comes back.
+    var hush = false;
+    fig.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse' && !hush) setOpen(true); });
+    fig.addEventListener('pointerleave', function (e) {
+      if (e.pointerType !== 'mouse') return;
+      hush = false;
+      if (!pinned) setOpen(false);
+      fig.removeAttribute('data-hl');
+    });
+    stage.addEventListener('click', function () {
+      if (fig.classList.contains('is-open') && (pinned || stage.matches(':hover'))) {
+        pinned = false; hush = true; setOpen(false);
+      } else {
+        pinned = true; hush = false; setOpen(true);
+      }
     });
     fig.querySelectorAll('.parts [data-part]').forEach(function (tr) {
       tr.addEventListener('pointerenter', function () { fig.setAttribute('data-hl', tr.getAttribute('data-part')); });
