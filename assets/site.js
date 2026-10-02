@@ -99,14 +99,14 @@
 
   // Tabs: pull out the tab for whichever section is on screen (home page only).
   var tabs = document.querySelectorAll('.tabs .tab');
-  var sections = ['overview', 'samples', 'record', 'troubleshooting', 'contact'].map(function (id) { return document.getElementById(id); }).filter(Boolean);
+  var sections = ['overview', 'samples', 'record', 'specs', 'troubleshooting'].map(function (id) { return document.getElementById(id); }).filter(Boolean);
   if (tabs.length && sections.length) {
     var byId = {};
     tabs.forEach(function (t) { byId[t.getAttribute('href').split('#')[1]] = t; });
     var ticking = false;
     var spy = function () {
       ticking = false;
-      var line = window.innerHeight * 0.4, current = null;
+      var line = window.innerHeight * 0.25, current = null;
       sections.forEach(function (el) { if (el.getBoundingClientRect().top <= line) current = el.id; });
       if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) current = sections[sections.length - 1].id;
       tabs.forEach(function (t) { t.removeAttribute('aria-current'); });
