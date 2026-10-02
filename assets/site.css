@@ -1945,3 +1945,32 @@ ins.mk-ins { text-decoration: none; }
 @media (min-width: 960px) {
   .tabs { top: max(5.75rem, min(calc(50vh - 15.5rem), calc(100vh - 31.5rem))); }
 }
+/* the fold's preview line is a label, not a link: no underline; the arrow signals it opens */
+.earlier > summary:hover .earlier-orgs { text-decoration: none; }
+.earlier > summary:hover::after { border-color: var(--ink); }
+
+/* The change-request link isn't a section, so it isn't drawn as a tab: just the icon */
+:root[data-theme="light"] .tabs .tab-contact,
+:root[data-theme="dark"] .tabs .tab-contact {
+  --tab-bg: transparent;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 50%;
+  color: var(--green);
+  transform: none;
+}
+:root[data-theme="light"] .tabs .tab-contact:hover, :root[data-theme="dark"] .tabs .tab-contact:hover,
+:root[data-theme="light"] .tabs .tab-contact[aria-current], :root[data-theme="dark"] .tabs .tab-contact[aria-current] {
+  --tab-bg: transparent;
+  background: color-mix(in srgb, var(--green) 12%, transparent);
+  color: var(--green);
+  transform: none;
+}
+@media (min-width: 960px) {
+  .tabs .tab-contact { width: 2.6rem; height: 2.6rem; padding: 0 !important; margin: 0.6rem 0 0 0.25rem; display: grid; place-items: center; }
+  .tabs .tab-contact svg { margin: 0; width: 1.3rem; height: 1.3rem; }
+}
+@media (max-width: 959px) {
+  .tabs .tab-contact { align-self: center; height: 2.9rem; padding: 0 !important; margin-bottom: env(safe-area-inset-bottom); }
+  .tabs .tab-contact > svg { width: 1.45rem; height: 1.45rem; }
+}
