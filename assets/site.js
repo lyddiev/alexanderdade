@@ -79,6 +79,28 @@
     var toggle = function () { setOpen(!fig.classList.contains('is-open')); };
     cue.addEventListener('click', toggle);
     if (stage) stage.addEventListener('click', toggle);
+    // One-time hint: the parts drift out a little and settle back, once per visitor.
+    (function () {
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var seen = false;
+      try { seen = localStorage.getItem('figPeek') === '1'; } catch (e) {}
+      if (reduce || seen || !('IntersectionObserver' in window)) return;
+      var timer, cancelled = false;
+      var cancel = function () { cancelled = true; clearTimeout(timer); fig.classList.remove('is-peek'); };
+      cue.addEventListener('click', cancel, { once: true });
+      if (stage) stage.addEventListener('click', cancel, { once: true });
+      var io = new IntersectionObserver(function (entries) {
+        if (!entries[0].isIntersecting) return;
+        io.disconnect();
+        timer = setTimeout(function () {
+          if (cancelled || fig.classList.contains('is-open')) return;
+          fig.classList.add('is-peek');
+          try { localStorage.setItem('figPeek', '1'); } catch (e) {}
+          timer = setTimeout(function () { fig.classList.remove('is-peek'); }, 1500);
+        }, 1000);
+      }, { threshold: 0.6 });
+      io.observe(stage || fig);
+    })();
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && fig.classList.contains('is-open')) { setOpen(false); cue.focus(); }
     });

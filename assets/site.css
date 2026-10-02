@@ -2082,3 +2082,14 @@ ins.mk-ins { text-decoration: none; }
   .ts-item dd { margin-top: 0.2rem; }
   .ts-item dt:nth-of-type(2) { margin-top: 0.7rem; }
 }
+
+/* One-time load hint: parts drift a third of the way out, then settle back */
+.cover-fig.is-peek .exploded .part {
+  opacity: 0.85;
+  transform: translate(calc(var(--dx) * 0.6), calc(var(--dy) * 0.6)) scale(0.6);
+  transition: transform 700ms cubic-bezier(.2,.8,.2,1), opacity 400ms ease;
+}
+.cover-fig.is-peek .fig-stage .portrait { opacity: 0.8; transform: scale(0.94); }
+.cover-fig.is-peek .fig-cue { background: var(--green); color: var(--paper); }
+.cover-fig.is-peek .exploded .part { transform: translate(calc(var(--dx) * 0.3), calc(var(--dy) * 0.3)) scale(0.78); opacity: 0.9; }
+.cover-fig.is-peek .fig-stage .portrait { opacity: 0.6; transform: scale(0.7); }
