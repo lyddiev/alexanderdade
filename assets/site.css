@@ -1700,3 +1700,40 @@ ins.mk-ins { text-decoration: none; }
 .cover-fig.is-open .fig-stage .dims { opacity: 0; }
 /* tabs stay short: numbers live on the section labels only */
 .tab-no { display: none !important; }
+
+/* ---------- Troubleshooting table ---------- */
+#troubleshooting { --chip: #233a31; }
+:root[data-theme="dark"] #troubleshooting { --chip: #d0e1d7; }
+#troubleshooting > h2 { justify-self: start; align-self: start; display: inline-block; padding: 0.38rem 0.65rem 0.34rem; border-radius: 4px; background: var(--chip); color: var(--paper); line-height: 1; }
+:root[data-theme="dark"] #troubleshooting > h2 { color: #15191b; }
+@media (min-width: 761px) { #troubleshooting > h2 { margin-top: 0.2rem; } }
+.ts { width: 100%; border-collapse: collapse; font-size: 0.95rem; line-height: 1.45; }
+.ts th {
+  padding: 0 0.9rem 0.5rem 0;
+  border-bottom: 1.5px solid var(--ink);
+  text-align: left;
+  font: 700 0.72rem/1 var(--sans);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--graphite);
+}
+.ts td { padding: 0.8rem 0.9rem 0.85rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.ts td:first-child { width: 34%; font-weight: 700; color: var(--ink); }
+.ts td:nth-child(2) { width: 30%; color: var(--graphite); }
+.ts td a { white-space: nowrap; font-weight: 600; }
+@media (max-width: 620px) {
+  .ts thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .ts, .ts tbody, .ts tr, .ts td { display: block; width: auto !important; }
+  .ts tr { padding: 0.85rem 0; border-bottom: 1px solid var(--rule); }
+  .ts tr:first-child { border-top: 1.5px solid var(--ink); }
+  .ts td { padding: 0.1rem 0; border: 0; }
+  .ts td::before { content: attr(data-label); display: block; margin-top: 0.45rem; font: 700 0.68rem/1.2 var(--sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--graphite); }
+  .ts td:first-child::before { margin-top: 0; }
+}
+@media (min-width: 761px) { #troubleshooting > h2 { font-size: 0.68rem; letter-spacing: 0.04em; } }
+
+/* Troubleshooting v2: one ink colour, one weight; links are the only accent */
+.ts td, .ts td:first-child, .ts td:nth-child(2) { color: var(--ink); font-weight: 400; }
+.ts td a { font-weight: 400; color: var(--green); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+.ts td a:hover { text-decoration-thickness: 2px; }
+.ts tbody tr:hover td { background: color-mix(in srgb, var(--green) 5%, transparent); }
