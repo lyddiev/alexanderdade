@@ -1681,3 +1681,22 @@ ins.mk-ins { text-decoration: none; }
 .cover-fig.is-open .fig-cue { transform: none; }
 .cover-fig .fig-cue .cue-v { transition: transform 200ms ease, opacity 200ms ease; transform-origin: center; transform-box: fill-box; }
 .cover-fig.is-open .fig-cue .cue-v { transform: scaleY(0); opacity: 0; }
+
+/* ---------- Section numbers, like a real manual ---------- */
+.sec-no { margin-right: 0.5em; font-variant-numeric: tabular-nums; opacity: 0.8; }
+.show-markup .section > h2 .sec-no { display: block; margin: 0 0 0.2em; }
+.cr-sec { margin: 0 0 0.3rem; font: 700 0.75rem/1 var(--sans); letter-spacing: 0.08em; color: var(--green); font-variant-numeric: tabular-nums; }
+.tab-no { display: none; }
+@media (min-width: 960px) {
+  .tab-no { display: inline; margin-right: 0.45em; font-weight: 700; opacity: 0.7; font-variant-numeric: tabular-nums; }
+}
+
+/* ---------- Fig. 1 dimension line: a drafting joke ---------- */
+.fig-stage .dims { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--graphite); pointer-events: none; transition: opacity 300ms ease; }
+.d-ext { fill: none; stroke: currentColor; stroke-width: 1; opacity: 0.55; }
+.d-line { fill: none; stroke: currentColor; stroke-width: 1.2; }
+.d-arrow { fill: currentColor; }
+.d-label { font: 700 15px/1 var(--sans); letter-spacing: 0.12em; text-transform: uppercase; fill: currentColor; text-anchor: middle; }
+.cover-fig.is-open .fig-stage .dims { opacity: 0; }
+/* tabs stay short: numbers live on the section labels only */
+.tab-no { display: none !important; }

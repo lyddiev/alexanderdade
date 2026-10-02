@@ -23,11 +23,11 @@
 <div class="frame">
 <nav class="tabs" aria-label="Sections">
   <a class="tab tab-top" href="#top" aria-label="Back to top" title="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg></a>
-  <a class="tab tab-overview" href="index.html#overview"><span>Overview</span></a>
-  <a class="tab tab-samples" href="#samples"><span>Samples</span></a>
-  <a class="tab tab-record" href="index.html#record"><span>History</span></a>
-  <a class="tab tab-specs" href="index.html#specs"><span>Specs</span></a>
-  <a class="tab tab-contact" href="index.html#contact"><span>Contact</span></a>
+  <a class="tab tab-overview" href="index.html#overview"><span><b class="tab-no">1.0</b>Overview</span></a>
+  <a class="tab tab-samples" href="#samples"><span><b class="tab-no">2.0</b>Samples</span></a>
+  <a class="tab tab-record" href="index.html#record"><span><b class="tab-no">3.0</b>History</span></a>
+  <a class="tab tab-specs" href="index.html#specs"><span><b class="tab-no">4.0</b>Specs</span></a>
+  <a class="tab tab-contact" href="index.html#contact"><span><b class="tab-no">5.0</b>Contact</span></a>
 </nav>
 <main id="main">
 
@@ -46,6 +46,12 @@
       <div class="fig-stage">
         <img class="portrait portrait-light" src="assets/img/portrait.png" width="1073" height="933" alt="">
         <img class="portrait portrait-dark" src="assets/img/portrait-dark.png" width="1073" height="933" alt="" loading="lazy">
+        <svg class="dims" viewBox="0 0 560 470" aria-hidden="true" focusable="false">
+          <path class="d-ext" d="M330 12 H452 M318 282 H452"/>
+          <path class="d-line" d="M440 12 V282"/>
+          <path class="d-arrow" d="M440 12 l-5 11 h10 z M440 282 l-5 -11 h10 z"/>
+          <text class="d-label" transform="translate(458 147) rotate(90)">Not to scale</text>
+        </svg>
         <svg class="exploded" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 470" aria-hidden="true" focusable="false">
           <!-- leader lines from the operator to each part -->
           <g class="axis">
@@ -129,7 +135,7 @@
 </section>
 
 <section class="section" id="overview" aria-labelledby="overview-h">
-  <h2 id="overview-h"><del class="mk">About</del><ins class="mk-ins">Overview</ins></h2>
+  <h2 id="overview-h"><span class="sec-no">1.0</span><del class="mk">About</del><ins class="mk-ins">Overview</ins></h2>
   <div class="body">
     <p class="lead">Technical program manager, most recently at Meta, running AI tool deployments and vendor site launches for global support operations. Before that, took a new glass melting technology at O-I from the R&amp;D lab into production plants.</p>
     <p>Started out as a professional chef, then cut my teeth in tech as a technical writer. I still consult and write the procedures, runbooks, and knowledge bases programs depend on, and a few of them are below.</p>
@@ -138,7 +144,7 @@
 </section>
 
 <section class="section" id="samples" aria-labelledby="samples-h">
-  <h2 id="samples-h"><del class="mk">Writing</del><ins class="mk-ins">Samples</ins></h2>
+  <h2 id="samples-h"><span class="sec-no">2.0</span><del class="mk">Writing</del><ins class="mk-ins">Samples</ins></h2>
   <div class="body">
     <p><del class="mk">Five samples from the last few years. Each page says what the document was for and what to notice in how it&rsquo;s written, then shows the document itself.</del> <ins class="mk-ins">Five documents from the last few years, each with a short note on what it was for and how it&rsquo;s built.</ins><span class="mk-c" aria-hidden="true">&minus;7 words</span></p>
     <ul class="samples">
@@ -197,7 +203,7 @@
 </section>
 
 <section class="section" id="record" aria-labelledby="record-h">
-  <h2 id="record-h"><del class="mk">Revision history</del><ins class="mk-ins">History</ins></h2>
+  <h2 id="record-h"><span class="sec-no">3.0</span><del class="mk">Revision history</del><ins class="mk-ins">History</ins></h2>
   <div class="body">
     <ul class="record">
       <li id="rev-10">
@@ -245,7 +251,7 @@
 </section>
 
 <section class="section" id="specs" aria-labelledby="specs-h">
-  <h2 id="specs-h"><del class="mk">Qualifications</del><ins class="mk-ins">Specs</ins></h2>
+  <h2 id="specs-h"><span class="sec-no">4.0</span><del class="mk">Qualifications</del><ins class="mk-ins">Specs</ins></h2>
   <div class="body">
     <ul class="record quals">
       <li>
@@ -272,6 +278,7 @@
 
     <header class="cr-head">
       <div>
+        <p class="cr-sec">5.0</p>
         <h2 id="cr-title" class="cr-title">Change request</h2>
         <p class="cr-intro">Hiring, contracting, or a question about anything here? File it below.</p>
       </div>
