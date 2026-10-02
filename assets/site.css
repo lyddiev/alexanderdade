@@ -1591,3 +1591,48 @@ ins.mk-ins { text-decoration: none; }
   .cover-fig > figcaption { grid-area: cap; margin-top: 0.5rem; }
   .cover-fig .parts-grid { margin-top: 1.5rem; }
 }
+
+/* ---------- Fig. 1 motion v2: cue sits on the side the parts list opens to; rows arrive one by one ---------- */
+@media (min-width: 761px) {
+  .fig-cue,
+  .cover-fig.is-open .fig-cue { left: -0.9rem; right: auto; top: 50%; bottom: auto; }
+  .fig-cue { transform: translateY(-50%); }
+  .cover-fig.is-open .fig-cue { transform: translateY(-50%) rotate(45deg); }
+}
+.cover-fig .parts-grid li {
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 260ms ease, transform 380ms cubic-bezier(.2,.8,.2,1), background-color 150ms ease;
+}
+@media (min-width: 761px) {
+  .cover-fig .parts-grid li { transform: translateX(18px); }
+}
+.cover-fig.is-open .parts-grid li { opacity: 1; transform: none; }
+.cover-fig.is-open .parts-grid li:nth-child(1) { transition-delay: 160ms; }
+.cover-fig.is-open .parts-grid li:nth-child(2) { transition-delay: 230ms; }
+.cover-fig.is-open .parts-grid li:nth-child(3) { transition-delay: 300ms; }
+.cover-fig.is-open .parts-grid li:nth-child(4) { transition-delay: 370ms; }
+/* the matching callout number on the drawing lights up with its row */
+.cover-fig[data-hl] .exploded .part .x-bub { transition: fill 150ms ease; }
+.cover-fig[data-hl="1"] .part-1 .x-bub, .cover-fig[data-hl="2"] .part-2 .x-bub,
+.cover-fig[data-hl="3"] .part-3 .x-bub, .cover-fig[data-hl="4"] .part-4 .x-bub { fill: var(--green); stroke: var(--green); }
+.cover-fig[data-hl="1"] .part-1 .x-num, .cover-fig[data-hl="2"] .part-2 .x-num,
+.cover-fig[data-hl="3"] .part-3 .x-num, .cover-fig[data-hl="4"] .part-4 .x-num { fill: var(--paper); }
+.cover-fig[data-hl] .parts-grid li[data-part] { opacity: .45; }
+.cover-fig[data-hl="1"] .parts-grid li[data-part="1"], .cover-fig[data-hl="2"] .parts-grid li[data-part="2"],
+.cover-fig[data-hl="3"] .parts-grid li[data-part="3"], .cover-fig[data-hl="4"] .parts-grid li[data-part="4"] { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .cover-fig .parts-grid li { transition: none !important; transform: none !important; }
+}
+/* entrance via animation so the hover-dimming below stays instant */
+.cover-fig .parts-grid li { transition: opacity 150ms ease, background-color 150ms ease; transform: none; }
+.cover-fig.is-open .parts-grid li { animation: row-in 400ms cubic-bezier(.2,.8,.2,1) backwards; }
+.cover-fig.is-open .parts-grid li:nth-child(1) { transition-delay: 0s; animation-delay: 160ms; }
+.cover-fig.is-open .parts-grid li:nth-child(2) { transition-delay: 0s; animation-delay: 230ms; }
+.cover-fig.is-open .parts-grid li:nth-child(3) { transition-delay: 0s; animation-delay: 300ms; }
+.cover-fig.is-open .parts-grid li:nth-child(4) { transition-delay: 0s; animation-delay: 370ms; }
+@keyframes row-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+@media (min-width: 761px) {
+  @keyframes row-in { from { opacity: 0; transform: translateX(18px); } to { opacity: 1; transform: none; } }
+}
+@media (prefers-reduced-motion: reduce) { .cover-fig.is-open .parts-grid li { animation: none; } }
