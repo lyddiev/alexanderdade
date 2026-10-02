@@ -29,13 +29,11 @@
 
   // Show markup switch: reveals the tracked changes on the cover.
   var markupSwitch = document.querySelector('[data-switch="markup"]');
-  var markup = document.querySelector('.markup');
-  if (markupSwitch && markup) {
+  if (markupSwitch) {
     markupSwitch.addEventListener('click', function () {
       var on = markupSwitch.getAttribute('aria-checked') !== 'true';
       markupSwitch.setAttribute('aria-checked', on ? 'true' : 'false');
       root.classList.toggle('show-markup', on);
-      markup.setAttribute('aria-hidden', on ? 'false' : 'true');
     });
   }
 
