@@ -2063,3 +2063,22 @@ ins.mk-ins { text-decoration: none; }
   .ts-item dt:nth-of-type(2) { margin-top: 0.6rem; }
 }
 @media (prefers-reduced-motion: reduce) { .ts-item summary::before, .ts-item summary::after { transition: none; } }
+
+/* Troubleshooting answer v2: cause and remedy as two stacked lines, label | text */
+.ts-item dl {
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1fr);
+  column-gap: 1rem;
+  row-gap: 0.45rem;
+  padding: 0 3rem 1.2rem 0;
+}
+.ts-item dl > dt:nth-of-type(1), .ts-item dl > dd:nth-of-type(1),
+.ts-item dl > dt:nth-of-type(2), .ts-item dl > dd:nth-of-type(2) { grid-column: auto; grid-row: auto; }
+.ts-item dt { padding-top: 0.32rem; }
+.ts-item dd { margin: 0; }
+@media (max-width: 620px) {
+  .ts-item dl { display: block; padding: 0 0 1.1rem 0.85rem; }
+  .ts-item dt { padding-top: 0; }
+  .ts-item dd { margin-top: 0.2rem; }
+  .ts-item dt:nth-of-type(2) { margin-top: 0.7rem; }
+}
