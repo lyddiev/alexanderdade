@@ -1575,3 +1575,19 @@ ins.mk-ins { text-decoration: none; }
 :root[data-theme="dark"] .tabs .tab-appx:nth-of-type(5) { --tab-bg: #c0d6ca; }
 :root[data-theme="dark"] .tabs .tab-appx:nth-of-type(6) { --tab-bg: #d0e1d7; }
 :root[data-theme="light"] .tabs .tab, :root[data-theme="light"] .tabs .tab:hover { color: #f3f4f0; }
+
+/* ---------- Desktop: the parts list opens into the empty left column, under the cover line ---------- */
+@media (min-width: 761px) {
+  .cover-main {
+    grid-template-columns: minmax(0, 1fr) clamp(14rem, 26vw, 20rem);
+    grid-template-areas: "text stage" "parts stage" ". cap";
+    grid-template-rows: auto 1fr auto;
+    row-gap: 0;
+  }
+  .cover-main > .cover-text { grid-area: text; }
+  .cover-main > .cover-fig { display: contents; }
+  .cover-fig .fig-stage { grid-area: stage; align-self: start; }
+  .cover-fig .parts-wrap { grid-area: parts; align-self: end; max-width: 24rem; }
+  .cover-fig > figcaption { grid-area: cap; margin-top: 0.5rem; }
+  .cover-fig .parts-grid { margin-top: 1.5rem; }
+}
