@@ -1636,3 +1636,29 @@ ins.mk-ins { text-decoration: none; }
   @keyframes row-in { from { opacity: 0; transform: translateX(18px); } to { opacity: 1; transform: none; } }
 }
 @media (prefers-reduced-motion: reduce) { .cover-fig.is-open .parts-grid li { animation: none; } }
+
+/* ---------- Fig. 1 control v3: the toggle lives in the caption ---------- */
+.fig-stage { cursor: pointer; }
+.cover-fig figcaption { display: flex; align-items: center; gap: 0.55rem; flex-wrap: wrap; }
+.cover-fig .fig-cue,
+.cover-fig.is-open .fig-cue {
+  position: relative;
+  inset: auto;
+  top: auto; right: auto; bottom: auto; left: auto;
+  transform: none;
+  flex: 0 0 auto;
+  width: 1.55rem;
+  height: 1.55rem;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+}
+.cover-fig.is-open .fig-cue { transform: rotate(45deg); background: var(--green); color: var(--paper); }
+.cover-fig .fig-cue:hover, .cover-fig .fig-cue:focus-visible,
+.cover-fig .fig-stage:hover ~ figcaption .fig-cue { background: var(--green); color: var(--paper); }
+.cover-fig .fig-cue:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+.cover-fig .fig-cue svg { width: 0.85rem; height: 0.85rem; }
+@media (pointer: coarse) { .cover-fig .fig-cue, .cover-fig.is-open .fig-cue { width: 2.2rem; height: 2.2rem; } }
+/* a quiet hover hint on the drawing itself */
+.fig-stage .portrait { transition: transform 650ms cubic-bezier(.2,.8,.2,1), opacity 450ms ease, filter 200ms ease; }
+.cover-fig:not(.is-open) .fig-stage:hover .portrait { transform: scale(1.015); }

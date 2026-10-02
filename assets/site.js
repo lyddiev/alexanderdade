@@ -61,51 +61,30 @@
     if (el) { e.preventDefault(); go(el); }
   });
 
-  // Fig. 1: hover (or tap) takes the operator apart. Each part is listed with the
-  // revisions it was installed in, and those link down into the history.
+  // Fig. 1: one deliberate control. The + beside the caption (or a click on the drawing)
+  // opens the components view; it stays open until closed with x, a second click, or Esc.
   var fig = document.querySelector('.cover-fig');
+  var cue = fig && fig.querySelector('.fig-cue');
   var stage = fig && fig.querySelector('.fig-stage');
-  var setOpen = function () {};
-  if (stage) {
-    var pinned = false;
-    setOpen = function (on) {
+  if (fig && cue) {
+    var setOpen = function (on) {
       fig.classList.toggle('is-open', on);
       if (on) fig.classList.add('was-opened');
-      stage.setAttribute('aria-pressed', on ? 'true' : 'false');
+      cue.setAttribute('aria-expanded', on ? 'true' : 'false');
+      var label = on ? 'Hide components' : 'Show major components';
+      cue.setAttribute('aria-label', label);
+      cue.setAttribute('title', label);
+      if (!on) fig.removeAttribute('data-hl');
     };
-    // Hover opens it; a click pins it open or closes it outright. After a click-close
-    // it stays shut until the pointer leaves and comes back.
-    var hush = false;
-    fig.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse' && !hush) setOpen(true); });
-    fig.addEventListener('pointerleave', function (e) {
-      if (e.pointerType !== 'mouse') return;
-      hush = false;
-      if (!pinned) setOpen(false);
-      fig.removeAttribute('data-hl');
+    var toggle = function () { setOpen(!fig.classList.contains('is-open')); };
+    cue.addEventListener('click', toggle);
+    if (stage) stage.addEventListener('click', toggle);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && fig.classList.contains('is-open')) { setOpen(false); cue.focus(); }
     });
-    stage.addEventListener('click', function () {
-      if (fig.classList.contains('is-open') && (pinned || stage.matches(':hover'))) {
-        pinned = false; hush = true; setOpen(false);
-      } else {
-        pinned = true; hush = false; setOpen(true);
-      }
-    });
-    fig.querySelectorAll('.parts [data-part]').forEach(function (tr) {
-      tr.addEventListener('pointerenter', function () { fig.setAttribute('data-hl', tr.getAttribute('data-part')); });
-      tr.addEventListener('pointerleave', function () { fig.removeAttribute('data-hl'); });
-    });
-    var flag = function (li) {
-      li.classList.add('is-flagged');
-      setTimeout(function () { li.classList.remove('is-flagged'); }, 1600);
-    };
-    fig.querySelectorAll('a[data-rev]').forEach(function (a) {
-      a.addEventListener('click', function (e) {
-        var rows = a.getAttribute('data-rev').split(' ').map(function (n) { return document.getElementById('rev-' + n); }).filter(Boolean);
-        if (!rows.length) return;
-        e.preventDefault();
-        go(rows[rows.length - 1], 'center');
-        rows.forEach(flag);
-      });
+    fig.querySelectorAll('.parts [data-part]').forEach(function (row) {
+      row.addEventListener('pointerenter', function () { fig.setAttribute('data-hl', row.getAttribute('data-part')); });
+      row.addEventListener('pointerleave', function () { fig.removeAttribute('data-hl'); });
     });
   }
 
