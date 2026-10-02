@@ -1662,3 +1662,22 @@ ins.mk-ins { text-decoration: none; }
 /* a quiet hover hint on the drawing itself */
 .fig-stage .portrait { transition: transform 650ms cubic-bezier(.2,.8,.2,1), opacity 450ms ease, filter 200ms ease; }
 .cover-fig:not(.is-open) .fig-stage:hover .portrait { transform: scale(1.015); }
+
+/* Fig. 1 caption v4: control on the left, manual-style figure number */
+.cover-fig figcaption { gap: 0.6rem; font-size: 0.85rem; color: var(--graphite); }
+.cover-fig .fig-no {
+  margin-right: 0.35rem;
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.cover-fig .fig-cue, .cover-fig.is-open .fig-cue { border-radius: 4px; width: 1.45rem; height: 1.45rem; }
+@media (pointer: coarse) { .cover-fig .fig-cue, .cover-fig.is-open .fig-cue { width: 2rem; height: 2rem; } }
+.cover-fig .fig-cue::after { border-radius: 4px; }
+/* the cover name is a home link everywhere else; on the cover it should never underline */
+.name-link:hover { text-decoration: none; }
+.cover-fig.is-open .fig-cue { transform: none; }
+.cover-fig .fig-cue .cue-v { transition: transform 200ms ease, opacity 200ms ease; transform-origin: center; transform-box: fill-box; }
+.cover-fig.is-open .fig-cue .cue-v { transform: scaleY(0); opacity: 0; }
