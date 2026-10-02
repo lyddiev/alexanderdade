@@ -1865,3 +1865,83 @@ ins.mk-ins { text-decoration: none; }
   letter-spacing: 0.05em;
   padding: 0.4rem 0.6rem 0.36rem;
 }
+
+/* ---------- v49: History compact + collapsed earlier roles; Specs as a spec sheet ---------- */
+:root[data-theme="light"] .tabs .tab-overview { --tab-bg: #577365; }
+:root[data-theme="light"] #overview { --chip: #577365; }
+:root[data-theme="light"] .tabs .tab-samples { --tab-bg: #4a6658; }
+:root[data-theme="light"] #samples { --chip: #4a6658; }
+:root[data-theme="light"] .tabs .tab-record { --tab-bg: #3d594c; }
+:root[data-theme="light"] #record { --chip: #3d594c; }
+:root[data-theme="light"] .tabs .tab-specs { --tab-bg: #304b40; }
+:root[data-theme="light"] #specs { --chip: #304b40; }
+:root[data-theme="light"] .tabs .tab-troubleshooting { --tab-bg: #233a31; }
+:root[data-theme="light"] #troubleshooting { --chip: #233a31; }
+:root[data-theme="dark"] .tabs .tab-overview { --tab-bg: #8fb3a0; }
+:root[data-theme="dark"] #overview { --chip: #8fb3a0; }
+:root[data-theme="dark"] .tabs .tab-samples { --tab-bg: #9fbfae; }
+:root[data-theme="dark"] #samples { --chip: #9fbfae; }
+:root[data-theme="dark"] .tabs .tab-record { --tab-bg: #b0cbbc; }
+:root[data-theme="dark"] #record { --chip: #b0cbbc; }
+:root[data-theme="dark"] .tabs .tab-specs { --tab-bg: #c0d6ca; }
+:root[data-theme="dark"] #specs { --chip: #c0d6ca; }
+:root[data-theme="dark"] .tabs .tab-troubleshooting { --tab-bg: #d0e1d7; }
+:root[data-theme="dark"] #troubleshooting { --chip: #d0e1d7; }
+
+#specs > h2 { justify-self: start; align-self: start; display: inline-block; border-radius: 4px; background: var(--chip); color: var(--paper); line-height: 1; font-size: 0.68rem; letter-spacing: 0.05em; padding: 0.4rem 0.6rem 0.36rem; }
+:root[data-theme="dark"] #specs > h2 { color: #15191b; }
+.show-markup #specs > h2 { background: var(--balloon); color: var(--redline); box-shadow: inset 0 0 0 1px var(--redline); }
+
+/* History rows: tighter, one weight for the title, org inline */
+.record li { padding: 0.85rem 0 0.9rem; }
+.record .role { font-size: 1rem; font-weight: 600; }
+.record .org { display: inline; margin: 0; font-weight: 500; }
+.record .role + .org::before { content: ""; }
+.record .what .role { display: block; }
+.record .line { margin-top: 0.2rem; font-size: 0.9rem; }
+
+/* Earlier roles fold away under one line */
+.earlier { border-bottom: 1px solid var(--rule); }
+.earlier > summary {
+  position: relative;
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr);
+  column-gap: 1.25rem;
+  padding: 0.85rem 2rem 0.9rem 0;
+  list-style: none;
+  cursor: pointer;
+}
+.earlier > summary::-webkit-details-marker { display: none; }
+.earlier-label { font: 600 0.85rem/1.5 var(--sans); color: var(--graphite); font-variant-numeric: tabular-nums; }
+.earlier-orgs { color: var(--green); font-weight: 500; }
+.earlier > summary::after {
+  content: ""; position: absolute; right: 0.4rem; top: 1.15rem;
+  width: 0.5rem; height: 0.5rem; border-right: 2px solid var(--green); border-bottom: 2px solid var(--green);
+  transform: rotate(45deg); transition: transform 200ms ease;
+}
+.earlier[open] > summary::after { transform: translateY(4px) rotate(-135deg); }
+.earlier > summary:hover .earlier-orgs { text-decoration: underline; text-underline-offset: 0.18em; }
+.earlier[open] > summary { border-bottom: 1px solid var(--rule); }
+.earlier .record li:last-child { border-bottom: 0; }
+@media (max-width: 520px) {
+  .earlier > summary { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Specs: a manufacturer's spec sheet, label | value */
+.spec { margin: 0; border-top: 1px solid var(--rule); }
+.spec > div { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); column-gap: 1.25rem; padding: 0.85rem 0; border-bottom: 1px solid var(--rule); }
+.spec dt { padding-top: 0.15rem; font: 600 0.85rem/1.4 var(--sans); color: var(--graphite); }
+.spec dd { margin: 0; font-weight: 600; color: var(--ink); line-height: 1.4; }
+.spec dd span { display: block; margin-top: 0.15rem; font-weight: 400; font-size: 0.9rem; color: var(--graphite); }
+@media (max-width: 520px) { .spec > div { grid-template-columns: minmax(0, 1fr); } .spec dt { padding: 0 0 0.15rem; } }
+
+.record .org { font-size: 0.95rem; }
+.earlier-orgs { font-size: 0.95rem; }
+
+/* Desktop tabs start below the green header band, never on top of it */
+@media (min-width: 960px) {
+  .tabs { top: max(7.25rem, calc(50vh - 14rem)); transform: none; }
+}
+@media (min-width: 960px) {
+  .tabs { top: max(5.75rem, min(calc(50vh - 15.5rem), calc(100vh - 31.5rem))); }
+}
