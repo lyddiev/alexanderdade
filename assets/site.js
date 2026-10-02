@@ -99,7 +99,7 @@
 
   // Tabs: pull out the tab for whichever section is on screen (home page only).
   var tabs = document.querySelectorAll('.tabs .tab');
-  var sections = ['overview', 'samples', 'record', 'specs', 'troubleshooting', 'contact'].map(function (id) { return document.getElementById(id); }).filter(Boolean);
+  var sections = ['overview', 'samples', 'record', 'troubleshooting', 'contact'].map(function (id) { return document.getElementById(id); }).filter(Boolean);
   if (tabs.length && sections.length) {
     var byId = {};
     tabs.forEach(function (t) { byId[t.getAttribute('href').split('#')[1]] = t; });

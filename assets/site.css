@@ -1782,3 +1782,86 @@ ins.mk-ins { text-decoration: none; }
 }
 
 @media (max-width: 959px) { .tabs.show-top .tab-top, .tabs .tab-top { display: none !important; } }
+
+/* ---------- Four section tabs + change request; icons on phones ---------- */
+:root[data-theme="light"] .tabs .tab-overview { --tab-bg: #577365; }
+:root[data-theme="light"] #overview { --chip: #577365; }
+:root[data-theme="light"] .tabs .tab-samples { --tab-bg: #445f52; }
+:root[data-theme="light"] #samples { --chip: #445f52; }
+:root[data-theme="light"] .tabs .tab-record { --tab-bg: #334c41; }
+:root[data-theme="light"] #record { --chip: #334c41; }
+:root[data-theme="light"] .tabs .tab-troubleshooting { --tab-bg: #233a31; }
+:root[data-theme="light"] #troubleshooting { --chip: #233a31; }
+:root[data-theme="dark"] .tabs .tab-overview { --tab-bg: #8fb3a0; }
+:root[data-theme="dark"] #overview { --chip: #8fb3a0; }
+:root[data-theme="dark"] .tabs .tab-samples { --tab-bg: #a5c2b3; }
+:root[data-theme="dark"] #samples { --chip: #a5c2b3; }
+:root[data-theme="dark"] .tabs .tab-record { --tab-bg: #bbd1c4; }
+:root[data-theme="dark"] #record { --chip: #bbd1c4; }
+:root[data-theme="dark"] .tabs .tab-troubleshooting { --tab-bg: #d0e1d7; }
+:root[data-theme="dark"] #troubleshooting { --chip: #d0e1d7; }
+
+.tabs .tab > svg { display: none; }
+.tabs .tab svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+@media (max-width: 959px) {
+  .tabs { gap: 0.4rem; }
+  .tabs .tab:not(.tab-appx) { display: grid; place-items: center; padding: 0.7rem 0 calc(0.8rem + env(safe-area-inset-bottom)); max-width: 5rem; }
+  .tabs .tab:not(.tab-appx) .tab-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .tabs .tab:not(.tab-appx) > svg { display: block; width: 1.35rem; height: 1.35rem; }
+  .tabs .tab-contact { flex: 1 1 0 !important; max-width: 5rem; margin-left: 0.6rem; }
+}
+/* Specs now sits inside Record as a sub-heading */
+.sub-h {
+  margin: 2.2rem 0 0.2rem;
+  font: 700 0.75rem/1 var(--sans);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+.sub-h + .record { margin-top: 0.5rem; }
+.show-markup .sub-h .mk { margin-right: 0.4em; }
+
+.tabs .tab-icon > svg, .tabs .tab-top > svg { display: block; }
+
+/* ---------- Troubleshooting on phones: a tap-to-open list instead of a squeezed table ---------- */
+.ts-list { display: none; }
+@media (max-width: 620px) {
+  .ts { display: none; }
+  .ts-list { display: block; border-top: 1.5px solid var(--ink); }
+  .ts-item { border-bottom: 1px solid var(--rule); }
+  .ts-item summary {
+    position: relative;
+    list-style: none;
+    padding: 0.95rem 2.2rem 0.95rem 0;
+    font-size: 1rem;
+    line-height: 1.4;
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .ts-item summary::-webkit-details-marker { display: none; }
+  .ts-item summary::after {
+    content: "";
+    position: absolute;
+    right: 0.35rem;
+    top: 50%;
+    width: 0.55rem;
+    height: 0.55rem;
+    border-right: 2px solid var(--green);
+    border-bottom: 2px solid var(--green);
+    transform: translateY(-70%) rotate(45deg);
+    transition: transform 200ms ease;
+  }
+  .ts-item[open] summary::after { transform: translateY(-30%) rotate(-135deg); }
+  .ts-item dl { margin: 0 0 1rem; padding: 0 0 0 0.85rem; border-left: 2px solid var(--green); }
+  .ts-item dt { margin-top: 0.5rem; font: 700 0.68rem/1.2 var(--sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--graphite); }
+  .ts-item dt:first-child { margin-top: 0; }
+  .ts-item dd { margin: 0.15rem 0 0; font-size: 0.95rem; line-height: 1.45; color: var(--ink); }
+  .ts-item dd a { color: var(--green); text-decoration: underline; text-underline-offset: 0.18em; white-space: nowrap; }
+}
+
+/* All section label chips share one size, so Troubleshooting matches the rest */
+#overview > h2, #samples > h2, #record > h2, #troubleshooting > h2 {
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  padding: 0.4rem 0.6rem 0.36rem;
+}
