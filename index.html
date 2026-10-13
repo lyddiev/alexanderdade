@@ -16,7 +16,8 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <script src="assets/theme.js?v=10"></script>
 <link rel="stylesheet" href="assets/site.css?v=10">
-<script src="assets/site.js?v=10" defer></script>
+<link rel="stylesheet" href="assets/cases.css?v=1">
+<script src="assets/site.js?v=11" defer></script>
 </head>
 <body id="top">
 <a class="skip" href="#main">Skip to content</a>
@@ -24,6 +25,7 @@
 <nav class="tabs" aria-label="Sections">
   <a class="tab tab-top" href="#top" aria-label="Back to top" title="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg></a>
   <a class="tab tab-overview" href="index.html#overview" aria-label="Overview"><span class="tab-label">Overview</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/></svg></a>
+  <a class="tab tab-programs" href="#programs" aria-label="Programs"><span class="tab-label">Programs</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5h6v2M3 12.5h18"/></svg></a>
   <a class="tab tab-samples" href="#samples" aria-label="Samples"><span class="tab-label">Samples</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg></a>
   <a class="tab tab-record" href="index.html#record" aria-label="History"><span class="tab-label">History</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.3-5.6"/><path d="M4 4v4h4M12 8v4l3 2"/></svg></a>
   <a class="tab tab-specs" href="index.html#specs" aria-label="Specs"><span class="tab-label">Specs</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="8" width="19" height="8" rx="1.5"/><path d="M6 8v3M9.5 8v4.5M13 8v3M16.5 8v4.5"/></svg></a>
@@ -132,8 +134,37 @@
   <h2 id="overview-h"><del class="mk">About</del><ins class="mk-ins">Overview</ins></h2>
   <div class="body">
     <p class="lead">Technical program manager, most recently at Meta, running AI tool deployments and vendor site launches for global support operations. Before that, took a new glass melting technology at O-I from the R&amp;D lab into production plants.</p>
-    <p>Started out as a professional chef, then cut my teeth in tech as a technical writer. I still consult and write the procedures, runbooks, and knowledge bases programs depend on, and a few of them are below.</p>
-    <p><a href="mailto:connectwithalexander@icloud.com?subject=Opportunity">Available</a> for new opportunities. Remote, or close to Orange County.</p>
+    <p>Started out as a professional chef, then cut my teeth in tech as a technical writer. I still consult and write the procedures, runbooks, and knowledge bases programs depend on.</p>
+    <p><a href="mailto:connectwithalexander@icloud.com?subject=Opportunity">Work With Me</a></p>
+  </div>
+</section>
+
+<section class="section" id="programs" aria-labelledby="programs-h">
+  <h2 id="programs-h"><ins class="mk-ins">Programs</ins><span class="mk-c" aria-hidden="true">New</span></h2>
+  <div class="body">
+    <p>Two programs, start to finish: the problem, the sequence, what could fail and how I controlled it, and the results.</p>
+    <ul class="samples">
+      <li>
+        <a class="appx" href="programs/ai-payment-verification.html">
+          <span class="appx-id" aria-hidden="true">1</span>
+          <span class="appx-body">
+            <span class="appx-title"><span class="visually-hidden">Program 1. </span>Scaling an AI payment check from 2 products to 22<span class="appx-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6.5 18.5 12 13 17.5"/></svg></span></span>
+            <span class="kind">Meta &middot; AI deployment in a 14,000-agent support operation</span>
+            <span class="appx-teaser">An AI feature built into support agents&rsquo; software. Pass criteria set before the build, a gate for every product, and average handling time from 19 minutes to 9.</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="appx" href="programs/pilot-to-production.html">
+          <span class="appx-id" aria-hidden="true">2</span>
+          <span class="appx-body">
+            <span class="appx-title"><span class="visually-hidden">Program 2. </span>Taking a new glass melting technology from pilot plant to production<span class="appx-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6.5 18.5 12 13 17.5"/></svg></span></span>
+            <span class="kind">O-I &middot; $250M industrial scale-up</span>
+            <span class="appx-teaser">Vendor-built automated systems integrated into one line, gated at every stage, across 200+ engineers, 12 portfolio teams, and three facilities.</span>
+          </span>
+        </a>
+      </li>
+    </ul>
   </div>
 </section>
 
@@ -258,6 +289,8 @@
       <thead><tr><th scope="col">Problem</th><th scope="col">Probable cause</th><th scope="col">Remedy</th></tr></thead>
       <tbody>
         <tr><td data-label="Problem">Launch date keeps slipping, and nobody owns it.</td><td data-label="Probable cause">Work split across teams with no single plan.</td><td data-label="Remedy"><a href="#contact">Install operator</a>: one schedule, one owner, one weekly status.</td></tr>
+        <tr><td data-label="Problem">An AI tool works in the demo and stalls in production.</td><td data-label="Probable cause">No pass bar agreed before the build.</td><td data-label="Remedy">Thresholds set in advance, a gate per product. <a href="programs/ai-payment-verification.html">See Program 1&nbsp;&rarr;</a></td></tr>
+        <tr><td data-label="Problem">Vendor systems won&rsquo;t run as one line.</td><td data-label="Probable cause">Each vendor tested alone.</td><td data-label="Remedy">Qualify each system, validate every control loop, train your own engineers. <a href="programs/pilot-to-production.html">See Program 2&nbsp;&rarr;</a></td></tr>
         <tr><td data-label="Problem">Support agents give five answers to the same question.</td><td data-label="Probable cause">Knowledge base with no shared structure.</td><td data-label="Remedy">One template for every article. <a href="samples/escalation-article.html">See Sample 1&nbsp;&rarr;</a></td></tr>
         <tr><td data-label="Problem">Operators wait on an engineer for every fault.</td><td data-label="Probable cause">Troubleshooting knowledge lives in people&rsquo;s heads.</td><td data-label="Remedy">Symptoms and causes first, then the checks in order. <a href="samples/cooling-wind-sop.html">See Sample 2&nbsp;&rarr;</a></td></tr>
         <tr><td data-label="Problem">Translation holds up the release.</td><td data-label="Probable cause">No defined handoff with the translation team.</td><td data-label="Remedy">A repeatable localization job. <a href="samples/localization.html">See Sample 3&nbsp;&rarr;</a></td></tr>
@@ -270,6 +303,20 @@
         <dl>
           <dt>Probable cause</dt><dd>Work split across teams with no single plan.</dd>
           <dt>Remedy</dt><dd><a href="#contact">Install operator</a>: one schedule, one owner, one weekly status.</dd>
+        </dl>
+      </details>
+      <details class="ts-item">
+        <summary>An AI tool works in the demo and stalls in production.</summary>
+        <dl>
+          <dt>Probable cause</dt><dd>No pass bar agreed before the build.</dd>
+          <dt>Remedy</dt><dd>Thresholds set in advance, a gate per product. <a href="programs/ai-payment-verification.html">See Program 1&nbsp;&rarr;</a></dd>
+        </dl>
+      </details>
+      <details class="ts-item">
+        <summary>Vendor systems won&rsquo;t run as one line.</summary>
+        <dl>
+          <dt>Probable cause</dt><dd>Each vendor tested alone.</dd>
+          <dt>Remedy</dt><dd>Qualify each system, validate every control loop, train your own engineers. <a href="programs/pilot-to-production.html">See Program 2&nbsp;&rarr;</a></dd>
         </dl>
       </details>
       <details class="ts-item">
