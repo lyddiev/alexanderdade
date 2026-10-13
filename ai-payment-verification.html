@@ -58,7 +58,7 @@
   <h2 id="problem-h">The problem</h2>
   <div class="body">
     <p>Support agents verified payments for people buying Meta products and advertising. Every case meant working the same checks by hand, from account standing and card ownership to the rules of each jurisdiction, and matching invoice numbers and licenses with the payments and risk teams. A case took 19 minutes on average.</p>
-    <p>Nobody was assigned to fix that. I saw an automation opportunity in those checks and pitched an AI feature built into the agents&rsquo; case software. It ran in the background during normal case handling, and agents acted on its output.</p>
+    <p>I saw an automation opportunity in those checks and pitched an AI feature built into the agents&rsquo; case software. It ran in the background during normal case handling, and agents acted on its output.</p>
   </div>
 </section>
 
@@ -72,7 +72,7 @@
       <li>Pilot<small>2 products</small></li>
       <li class="is-end">Scale<small>a gate per product, to 22</small></li>
     </ol>
-    <p class="flow-cap"><span class="fig-no">Fig. 1</span>The rollout sequence. No product moved forward until it cleared its own gate.</p>
+    <p class="flow-cap"><span class="fig-no">Fig. 1</span>The rollout sequence. Each product moved forward only after it cleared its own gate.</p>
   </div>
 </section>
 
@@ -86,12 +86,12 @@
     <p>Server capacity, resource allocation, and usage cost went into the business justification before each build started. Nothing was built without one, and after launch the results were reported against it.</p>
   </li>
   <li>
-    <span class="step-title">Prove it small.</span>
+    <span class="step-title">Start with a pilot.</span>
     <p>I ran a feasibility experiment first, then took the tool live as a pilot on two products.</p>
   </li>
   <li>
     <span class="step-title">Set the pass bar before the build.</span>
-    <p>I ran a workshop where the product owner and knowledge owners set the OKRs and thresholds in advance. Two questions decided every gate: did agents adopt it, and did it actually cut handling time.</p>
+    <p>I ran a workshop where the product owner and knowledge owners set the OKRs and thresholds in advance. The pass criteria were adoption and a measured cut in handling time.</p>
   </li>
   <li>
     <span class="step-title">Gate every product.</span>
@@ -99,7 +99,7 @@
   </li>
   <li>
     <span class="step-title">Govern what the tool reads.</span>
-    <p>The tool read from a separate knowledge base written for the machine, not for people. I governed what went into it, with named owners, restricted write access, and a RACI.</p>
+    <p>The tool read from a separate, machine-only knowledge base. I governed what went into it, with named owners, restricted write access, and a RACI.</p>
   </li>
   <li>
     <span class="step-title">Run the defect loop.</span>
@@ -124,7 +124,7 @@
       <caption class="visually-hidden">Failure modes and the controls built for them</caption>
       <thead><tr><th scope="col">Failure mode</th><th scope="col">Control</th></tr></thead>
       <tbody>
-        <tr><td data-label="Failure mode">The tool fails on a case.</td><td data-label="Control">It detected its own failures. The agent fell back to the manual process they already knew, so nobody needed retraining.</td></tr>
+        <tr><td data-label="Failure mode">The tool fails on a case.</td><td data-label="Control">It detected its own failures. The agent fell back to the manual process they already knew, so agents needed no retraining.</td></tr>
         <tr><td data-label="Failure mode">The same failure keeps coming back.</td><td data-label="Control">Engineering was notified of every failure. We collected them to spot trends and worked the trends in a weekly workshop.</td></tr>
         <tr><td data-label="Failure mode">An agent disagrees with the output.</td><td data-label="Control">Scope limits were written into the protocol. On risk, impersonation, and bad actor cases, agents followed the output and could flag the case for review.</td></tr>
         <tr><td data-label="Failure mode">Bad data goes in.</td><td data-label="Control">The machine-only knowledge base had named owners and restricted write access.</td></tr>
@@ -132,7 +132,7 @@
       </tbody>
     </table>
     <div class="ts-list">
-      <details class="ts-item"><summary>The tool fails on a case.</summary><dl><dt>Control</dt><dd>It detected its own failures. The agent fell back to the manual process they already knew, so nobody needed retraining.</dd></dl></details>
+      <details class="ts-item"><summary>The tool fails on a case.</summary><dl><dt>Control</dt><dd>It detected its own failures. The agent fell back to the manual process they already knew, so agents needed no retraining.</dd></dl></details>
       <details class="ts-item"><summary>The same failure keeps coming back.</summary><dl><dt>Control</dt><dd>Engineering was notified of every failure. We collected them to spot trends and worked the trends in a weekly workshop.</dd></dl></details>
       <details class="ts-item"><summary>An agent disagrees with the output.</summary><dl><dt>Control</dt><dd>Scope limits were written into the protocol. On risk, impersonation, and bad actor cases, agents followed the output and could flag the case for review.</dd></dl></details>
       <details class="ts-item"><summary>Bad data goes in.</summary><dl><dt>Control</dt><dd>The machine-only knowledge base had named owners and restricted write access.</dd></dl></details>
