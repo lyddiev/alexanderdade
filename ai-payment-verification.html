@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scaling an AI payment check from 2 products to 22 | Alexander Dade</title>
+<meta name="description" content="Case study by Alexander Dade: an AI feature built into support agents&#x27; software at Meta, gated product by product from a two-product pilot to 22 products, cutting average handling time from 19 minutes to 9.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f3f4f0">
+<!-- Open Graph. Link preview image. -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scaling an AI payment check from 2 products to 22 | Alexander Dade">
+<meta property="og:description" content="Case study by Alexander Dade: an AI feature built into support agents&#x27; software at Meta, gated product by product from a two-product pilot to 22 products, cutting average handling time from 19 minutes to 9.">
+<meta property="og:image" content="https://alexanderdade.com/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<script src="../assets/theme.js?v=10"></script>
+<link rel="stylesheet" href="../assets/site.css?v=10">
+<link rel="stylesheet" href="../assets/cases.css?v=1">
+<script src="../assets/site.js?v=11" defer></script>
+</head>
+<body id="top">
+<a class="skip" href="#main">Skip to content</a>
+<div class="frame">
+<header class="runhead">
+  <a class="home" href="../index.html">Alexander Dade</a>
+  <div class="band-controls"><a class="band-btn" href="mailto:connectwithalexander@icloud.com" aria-label="Email" title="Email"><svg class="i-mail" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.8 7.2 12 13l8.2-5.8"/></svg></a><a class="band-btn" href="https://www.linkedin.com/in/alexanderdade/" aria-label="LinkedIn" title="LinkedIn"><svg class="i-in" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3.5"/><path d="M8.2 10.6v6M8.2 7.6v.01M12 16.6v-6M12 13.4c0-1.7 1.1-2.9 2.6-2.9s2.4 1.1 2.4 2.9v3.2"/></svg></a><span class="band-sep" aria-hidden="true"></span><button class="band-btn" type="button" role="switch" aria-checked="false" data-switch="theme" aria-label="Dark mode" title="Dark mode"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg></button></div>
+</header>
+<nav class="tabs tabs-appx" aria-label="Programs">
+  <a class="tab tab-top" href="#top" aria-label="Back to top" title="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg></a>
+  <a class="tab tab-appx" href="ai-payment-verification.html" title="Program 1. Scaling an AI payment check from 2 products to 22" aria-label="Program 1: Scaling an AI payment check from 2 products to 22" aria-current="page"><span>1</span></a>
+  <a class="tab tab-appx" href="pilot-to-production.html" title="Program 2. Taking a new glass melting technology from pilot plant to production" aria-label="Program 2: Taking a new glass melting technology from pilot plant to production"><span>2</span></a>
+</nav>
+<main id="main" class="case">
+
+<header class="section sample-head">
+  <div class="body">
+    <p class="crumb"><a href="../index.html#programs"><span aria-hidden="true">&larr;</span> All programs</a></p>
+    <p class="appx-label">Program 1 of 2</p>
+    <h1>Scaling an AI payment check from 2 products to 22</h1>
+    <p class="kind">Case study &middot; Meta, Global Scaled Operations &middot; 2025 to 2026</p>
+  </div>
+</header>
+
+<section class="section" aria-labelledby="glance-h">
+  <h2 id="glance-h">At a glance</h2>
+  <div class="body">
+    <dl class="spec">
+      <div><dt>Role</dt><dd>Senior Technical Program Manager, contract</dd></div>
+      <div><dt>Scope</dt><dd>22 products &middot; 15+ markets &middot; 14,000+ agents &middot; 3 engineering teams</dd></div>
+      <div><dt>Result</dt><dd>Average handling time from 19 minutes to 9</dd></div>
+      <div><dt>My part</dt><dd>The case for it, the pass criteria, the gates, the data it ran on, and the defect loop. Engineering built the tool.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="problem-h">
+  <h2 id="problem-h">The problem</h2>
+  <div class="body">
+    <p>Support agents verified payments for people buying Meta products and advertising. Every case meant working the same checks by hand, from account standing and card ownership to the rules of each jurisdiction, and matching invoice numbers and licenses with the payments and risk teams. A case took 19 minutes on average.</p>
+    <p>Nobody was assigned to fix that. I saw an automation opportunity in those checks and pitched an AI feature built into the agents&rsquo; case software. It ran in the background during normal case handling, and agents acted on its output.</p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="flow-h">
+  <h2 id="flow-h">Sequence</h2>
+  <div class="body">
+    <ol class="flow" aria-label="Sequence">
+      <li>Opportunity<small>spotted and pitched</small></li>
+      <li>Business case<small>and a feasibility test</small></li>
+      <li>Pass criteria<small>set in advance</small></li>
+      <li>Pilot<small>2 products</small></li>
+      <li class="is-end">Scale<small>a gate per product, to 22</small></li>
+    </ol>
+    <p class="flow-cap"><span class="fig-no">Fig. 1</span>The rollout sequence. No product moved forward until it cleared its own gate.</p>
+  </div>
+</section>
+
+<section class="sheet-wrap" aria-labelledby="doc-h">
+  <p class="sheet-label" id="doc-h">How it ran</p>
+  <article class="sheet">
+<h2>AI payment check, 2 products to 22: the program, in order</h2>
+<ol class="steps">
+  <li>
+    <span class="step-title">Make the business case before every build.</span>
+    <p>Server capacity, resource allocation, and usage cost went into the business justification before each build started. Nothing was built without one, and after launch the results were reported against it.</p>
+  </li>
+  <li>
+    <span class="step-title">Prove it small.</span>
+    <p>I ran a feasibility experiment first, then took the tool live as a pilot on two products.</p>
+  </li>
+  <li>
+    <span class="step-title">Set the pass bar before the build.</span>
+    <p>I ran a workshop where the product owner and knowledge owners set the OKRs and thresholds in advance. Two questions decided every gate: did agents adopt it, and did it actually cut handling time.</p>
+  </li>
+  <li>
+    <span class="step-title">Gate every product.</span>
+    <p>Each product after the pilot had to clear its own phase gate, with kill criteria written down before it started.</p>
+  </li>
+  <li>
+    <span class="step-title">Govern what the tool reads.</span>
+    <p>The tool read from a separate knowledge base written for the machine, not for people. I governed what went into it, with named owners, restricted write access, and a RACI.</p>
+  </li>
+  <li>
+    <span class="step-title">Run the defect loop.</span>
+    <p>In testing I flagged suspect fields. The engineer confirmed or corrected the location and committed a fix time, and I cut the ticket and assigned it.</p>
+  </li>
+  <li>
+    <span class="step-title">Fix cost and speed.</span>
+    <p>When it ran slow and heavy on tokens, I ran the review that found why, and it was restructured to use fewer tokens and respond faster.</p>
+  </li>
+  <li>
+    <span class="step-title">Scale it.</span>
+    <p>The rollout reached 22 products and 15+ markets across three engineering teams and 14,000+ agents.</p>
+  </li>
+</ol>
+  </article>
+</section>
+
+<section class="section" aria-labelledby="controls-h">
+  <h2 id="controls-h">Failure modes and controls</h2>
+  <div class="body">
+    <table class="ts">
+      <caption class="visually-hidden">Failure modes and the controls built for them</caption>
+      <thead><tr><th scope="col">Failure mode</th><th scope="col">Control</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Failure mode">The tool fails on a case.</td><td data-label="Control">It detected its own failures. The agent fell back to the manual process they already knew, so nobody needed retraining.</td></tr>
+        <tr><td data-label="Failure mode">The same failure keeps coming back.</td><td data-label="Control">Engineering was notified of every failure. We collected them to spot trends and worked the trends in a weekly workshop.</td></tr>
+        <tr><td data-label="Failure mode">An agent disagrees with the output.</td><td data-label="Control">Scope limits were written into the protocol. On risk, impersonation, and bad actor cases, agents followed the output and could flag the case for review.</td></tr>
+        <tr><td data-label="Failure mode">Bad data goes in.</td><td data-label="Control">The machine-only knowledge base had named owners and restricted write access.</td></tr>
+        <tr><td data-label="Failure mode">A product misses its numbers.</td><td data-label="Control">Its kill criteria applied at its gate, and it stopped there.</td></tr>
+      </tbody>
+    </table>
+    <div class="ts-list">
+      <details class="ts-item"><summary>The tool fails on a case.</summary><dl><dt>Control</dt><dd>It detected its own failures. The agent fell back to the manual process they already knew, so nobody needed retraining.</dd></dl></details>
+      <details class="ts-item"><summary>The same failure keeps coming back.</summary><dl><dt>Control</dt><dd>Engineering was notified of every failure. We collected them to spot trends and worked the trends in a weekly workshop.</dd></dl></details>
+      <details class="ts-item"><summary>An agent disagrees with the output.</summary><dl><dt>Control</dt><dd>Scope limits were written into the protocol. On risk, impersonation, and bad actor cases, agents followed the output and could flag the case for review.</dd></dl></details>
+      <details class="ts-item"><summary>Bad data goes in.</summary><dl><dt>Control</dt><dd>The machine-only knowledge base had named owners and restricted write access.</dd></dl></details>
+      <details class="ts-item"><summary>A product misses its numbers.</summary><dl><dt>Control</dt><dd>Its kill criteria applied at its gate, and it stopped there.</dd></dl></details>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="results-h">
+  <h2 id="results-h">Results</h2>
+  <div class="body">
+    <ul class="stats">
+      <li><b>19 &rarr; 9</b><span>minutes, average handling time</span></li>
+      <li><b>22</b><span>products, from a pilot of 2</span></li>
+      <li><b>15+</b><span>markets</span></li>
+      <li><b>14,000+</b><span>agents using it</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="said-h">
+  <h2 id="said-h">What colleagues said</h2>
+  <div class="body">
+    <ul class="recs">
+      <li>
+        <figure class="rec">
+          <blockquote><p>&hellip;he owned the knowledge foundation behind it, driving a large-scale KB feedback audit and delivering the knowledge-base overhaul that made the Co-Pilot recommendations trustworthy and deployable as the program scaled from experiments to production.</p></blockquote>
+          <figcaption><b>Sharmilla Abhilash</b>Global Operations Senior Program Manager, Meta &middot; Worked with Alexander on a different team &middot; July 2026</figcaption>
+          <details>
+            <summary>Read the full recommendation</summary>
+            <p>I had the pleasure of working closely with Alexander in Ads, Co-pilot & MPS programs, and he's one of the dependable partners I've collaborated with. Alexander played a key role in Co-Pilot program launch (improving human agent resolution capabilities by providing proactive guidance and resolution using AI) where he owned the knowledge foundation behind it, driving a large-scale KB feedback audit and delivering the knowledge-base overhaul that made the Co-Pilot recommendations trustworthy and deployable as the program scaled from experiments to production. Co-pilot was launched in Advertiser program and it helped improve CSAT by 3 - 5% in some of the crucial workflows.</p>
+            <p>He also partnered directly with product, engineering, and program leadership on knowledge readiness for AI launches -- flagging draft gaps before go-live, aligning on where content should live, and ensuring quality requirements were built in correctly rather than bolted on afterward. He did all of it with positivity and a calm, solutions-first mindset that made every collaboration better. In his knowledge management role, Alexander was the person who consistently turned complex requirements into clear, usable guidance for frontline support teams. Any team building or scaling AI programs would be lucky to have Alexander. I recommend him without hesitation.</p>
+          </details>
+        </figure>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="related-h">
+  <h2 id="related-h">Related</h2>
+  <div class="body">
+    <ul class="related">
+      <li><a href="../samples/escalation-article.html">Sample 1. Resolving a monetization issue</a><span>A knowledge base article from the same support operation.</span></li>
+      <li><a href="pilot-to-production.html">Program 2. Taking a new glass melting technology from pilot plant to production</a><span>Case study &middot; O-I &middot; 2019 to 2020 and 2023 to 2024</span></li>
+    </ul>
+  </div>
+</section>
+
+<nav class="pager" aria-label="More programs">
+  <div><a class="next" href="pilot-to-production.html"><span>Next</span>Taking a new glass melting technology from pilot plant to production</a></div>
+</nav>
+
+</main>
+<footer class="backcover">
+  <div class="backcover-band" aria-hidden="true"></div>
+  <div class="backcover-grid">
+    <p class="backcover-name"><a href="/">Alexander Dade</a></p>
+    <ul class="backcover-links">
+      <li><a href="mailto:connectwithalexander@icloud.com" aria-label="Email" title="Email"><svg class="i-mail" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.8 7.2 12 13l8.2-5.8"/></svg></a></li>
+      <li><a href="https://www.linkedin.com/in/alexanderdade/" aria-label="LinkedIn" title="LinkedIn"><svg class="i-in" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3.5"/><path d="M8.2 10.6v6M8.2 7.6v.01M12 16.6v-6M12 13.4c0-1.7 1.1-2.9 2.6-2.9s2.4 1.1 2.4 2.9v3.2"/></svg></a></li>
+    </ul>
+  </div>
+  <p class="backcover-fine">AD-001, Rev. 10. &copy; 2026 Alexander Dade<del class="mk">. Set in Helvetica.</del></p>
+</footer>
+</div>
+</body>
+</html>
