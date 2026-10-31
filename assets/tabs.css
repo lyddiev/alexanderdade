@@ -1,0 +1,57 @@
+/* Desktop section tabs: icons, with the label shown on hover or keyboard focus.
+   Seven rotated labels stack to about 750px and ran off the bottom of laptop
+   screens once Programs and Recommendations were added. Icons match the mobile tabs. */
+@media (min-width: 960px) {
+  .tabs:not(.tabs-appx) {
+    top: max(5.75rem, calc(50vh - 11.5rem));
+    gap: 0.35rem;
+  }
+  .tabs:not(.tabs-appx) .tab:not(.tab-top) {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 3.1rem;
+    height: 2.9rem;
+    padding: 0 !important;
+  }
+  .tabs:not(.tabs-appx) .tab:not(.tab-top) > svg {
+    display: block;
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  .tabs:not(.tabs-appx) .tab .tab-label {
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 0.45rem);
+    margin: 0;
+    padding: 0.4rem 0.65rem;
+    border-radius: 6px;
+    background: var(--tab-bg);
+    color: inherit;
+    font-size: 0.8rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    writing-mode: horizontal-tb;
+    transform: translate(-0.3rem, -50%);
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.14);
+    transition: opacity 160ms ease, transform 160ms ease;
+  }
+  .tabs:not(.tabs-appx) .tab:hover .tab-label,
+  .tabs:not(.tabs-appx) .tab:focus-visible .tab-label {
+    opacity: 1;
+    transform: translate(0, -50%);
+  }
+}
+/* Where the tabs sit at the right edge of the window, the label opens to the left. */
+@media (min-width: 960px) and (max-width: 1180px) {
+  .tabs:not(.tabs-appx) .tab .tab-label {
+    left: auto;
+    right: calc(100% + 0.45rem);
+    transform: translate(0.3rem, -50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tabs:not(.tabs-appx) .tab .tab-label { transition: none; }
+}
